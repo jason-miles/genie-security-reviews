@@ -17,7 +17,7 @@ Use per workspace. Record the value found, the owner, and the date.
 |---|---|---|---|
 | 1 | Partner-powered AI features | Account console, Settings, Feature enablement; workspace Settings, Advanced | Record value **before 1 Nov 2026**; set Enforce if the account must not be overridden |
 | 2 | Enforce data processing within workspace Geography for Designated Services | Account console, Workspace, Security and compliance | Match to the processing policy |
-| 3 | Compliance security profile | Workspace | Enable for regulated data (HIPAA, PCI-DSS, and others); changes defaults for cross-Geo and partner features |
+| 3 | Compliance security profile | Workspace | Enable for regulated data (HIPAA, PCI-DSS, and others); changes defaults for cross-Geo and partner features. Account-level Genie One does not aggregate data from workspaces with the profile enabled |
 | 4 | Region selection | Workspace creation | Choose where data at rest and SQL compute must live |
 | 5 | Customer-managed keys | Account console | Cover managed services and storage; check Genie conversation-history coverage |
 | 6 | Private Link, network connectivity, serverless egress control | Account/workspace | Lock down data-plane egress, including for serverless |

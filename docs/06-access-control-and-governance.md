@@ -8,7 +8,7 @@ A Genie Agent (space) is a **curation layer, not a permission boundary**. Unity 
 
 | Access path | Data authorization | Notes |
 |---|---|---|
-| Genie UI | Querying user (OAuth user-to-machine) | Full per-user grants, filters, masks |
+| Genie UI | Data: querying user (OAuth user-to-machine). Compute: the credentials the agent author embedded | Full per-user grants, filters, masks. Users need no direct warehouse permission |
 | Conversation API with user token | Querying user | Full per-user |
 | Genie in dashboards | Viewer's UC grants for data | Per-viewer |
 | Published / embedded | User for data; a service principal may hold the warehouse connection | Data authorization remains per-user |

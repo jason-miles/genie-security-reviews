@@ -46,13 +46,19 @@ With cross-Geo processing **disabled**, the same page lists these countries as p
 | No **processing** outside the country | Cannot be met for features lacking native in-country availability; enforcing the Geo makes them unavailable |
 | No processing outside a **region bloc** (for example EU) | Use a workspace in a Geo where the feature is native (for example the EU data boundary) |
 
-## Regional availability pattern (illustrative; verify per region)
+## Availability by Geo (designated-services page, AWS, checked 13 Oct 2026)
 
-| Situation | Genie Agents / One / dashboards |
-|---|---|
-| Workspace in a Geo with native model endpoints (for example US, EU) | Processed in-Geo; enforcement can stay ON |
-| Workspace in a Geo without native endpoints (for example some Middle East and Africa regions) | Works only with cross-Geo enabled; enforcement turns the feature off |
-| Mainland China, some Middle East and Africa regions | Limited availability |
+| Geo | Genie Agents Chat | Genie Code chat and cell actions | AI/BI dashboards | AI-generated comments |
+|---|---|---|---|---|
+| Americas | Available (‡) | Available (‡) | Available (‡) | Available (‡) |
+| Asia | Available (‡) | Available (‡) | Available (‡) | Available (‡) |
+| Australia and New Zealand | Available | Available | Available | Cross-Geo required (*) |
+| Europe | Available (‡) | Available (‡) | Available (‡) | Available (‡) |
+| India | Available | Available (‡) | Available | Cross-Geo required (*) |
+| Mainland China | Not available | Not available | Not available | Cross-Geo required (*) |
+| Middle East and Africa | Cross-Geo required (*) | Cross-Geo required (*) | Cross-Geo required (*) | Cross-Geo required (*) |
+
+Key: **\*** available only when cross-Geo processing is enabled; **‡** country-specific processing when cross-Geo is disabled (countries listed above); unmarked means available natively in the Geo. The page states Genie One chat and Genie App Builder follow the same pattern as Genie Agents Agent mode, which it does not itemize in the extract reviewed; confirm Agent mode, One, and App Builder per region. Availability differs by cloud, so repeat this check against the Azure and GCP pages.
 
 Public documentation does **not** state which Geo processes the content when cross-Geo is used. Do not assume it is a specific region; ask the account team.
 

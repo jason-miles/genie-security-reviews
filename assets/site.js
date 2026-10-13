@@ -31,7 +31,7 @@ var FEATURES = {
     off: "none",
     sent: [
       ["V", "Everything in Chat mode: question, names, descriptions, relevant values, instructions, example SQL."],
-      ["S", "Agent mode runs several queries and learns from each result, so intermediate results reach the model."]
+      ["S", "Agent mode runs several queries, so intermediate results likely reach the model. The docs do not state it; treat as sent."]
     ]
   },
   one: {
@@ -100,7 +100,7 @@ function el(tag, cls, text) {
 function chipItem(grade, text, titleLine) {
   var li = el("li");
   var c = el("span", "chip " + grade, grade);
-  c.title = { V: "Checked against source text", S: "From a summary; re-check", D: "Databricks-provided; confirm in writing" }[grade];
+  c.title = { V: "Checked against source text", S: "Inferred or from a summary; re-check", D: "Databricks-provided; confirm in writing" }[grade];
   li.appendChild(c);
   var d = el("div");
   if (titleLine) {
@@ -220,7 +220,7 @@ function init() {
   Array.prototype.forEach.call(document.querySelectorAll("[data-raw]"), function (a) {
     a.href = REPO.replace("/blob/", "/raw/") + a.getAttribute("data-raw");
   });
-  var tot = 28;
+  var tot = 29;
   Array.prototype.forEach.call(document.querySelectorAll("[data-count]"), function (n) {
     var v = Number(n.getAttribute("data-count"));
     n.style.width = (v / tot * 100) + "%";

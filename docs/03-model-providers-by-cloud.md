@@ -35,7 +35,7 @@ Reviewed 13 Oct 2026. Rows marked with a cloud list differences; unmarked rows a
 | **Anthropic** | "Anthropic on Databricks" for agentic features, Genie Agents Agent mode, Genie One | Hosted by Databricks within its security perimeter; Anthropic built-in safety mechanisms apply |
 | **Google (Gemini)** | **Not listed as a provider for Genie assistive features** in the partner-powered tables on AWS, Azure, or GCP as reviewed. Gemini models are available as **customer-selected** models through Databricks-hosted inference (Foundation Model APIs / AI Gateway), which is a different path from the assistive features above | Do not assume Genie uses Gemini on GCP. To confirm for future releases |
 | **Databricks-hosted** | Autocomplete, AI-generated comments (setting off), non-agentic Genie Code (setting off), data classification, AI Search reranker | Cross-Geo processing may be needed outside the US and EU data boundary |
-| **Other open-weight and proprietary families** (Meta, Qwen, xAI, DeepSeek, and others) | Offered as selectable models in Databricks-hosted inference | Not used by the Genie assistive features in the tables above |
+| **Other open-weight and proprietary families** (Meta, Qwen, xAI, DeepSeek, and others) | Offered as selectable models in Databricks-hosted inference. The inference overview states the listed models are hosted by Databricks, that "listing a model does not send customer data to it for inference," and that availability depends on workspace region and cross-Geo settings | Not used by the Genie assistive features in the tables above |
 
 ## Clouds
 
