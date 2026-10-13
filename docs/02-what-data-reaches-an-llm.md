@@ -36,7 +36,7 @@ Public data lists do not mention result rows; Databricks field material does. Tr
 - Unity Catalog permissions, row filters, and column masks limit what any user, and therefore any prompt, can contain.
 - Tag-based or attribute-based masking of sensitive columns before enabling Genie on a table.
 - Curate Genie Agents to the minimum tables and columns required; avoid wide schemas.
-- Disable value-based features (sample values, value dictionaries) per Genie Agent where the product setting exists (to confirm per release; see [open questions](../notes/open-questions.md)).
+- Turn off Prompt Matching (format assistance and entity matching) **per column** in the Genie Agent, or use the table-level option where your UI offers it. See [06](06-access-control-and-governance.md#prompt-matching-value-sampling).
 - Turn off partner-powered AI features where the business case does not require Genie Chat/Agent modes (note: this disables those features; see [03](03-model-providers-by-cloud.md)).
 
 ## What is not sent

@@ -31,7 +31,7 @@ A Genie Agent (space) is a **curation layer, not a permission boundary**. Unity 
 
 ## Prompt Matching (value sampling)
 
-Prompt Matching (format assistance and entity matching) can place sampled column values in the prompt. Field material describes up to 24 sampled values per column in the prompt, only values the user can see. It can be disabled per Genie Agent, leaving schema-only prompts. Recommended default for spaces over sensitive columns: **disable**.
+Prompt Matching (format assistance and entity matching) can place sampled column values in the prompt. Field material describes up to 24 sampled values per column in the prompt, only values the user can see. Public documentation describes the control **per column**, not as one space-wide switch: in the Genie Agent, go to Configure, Sources, select a table, edit a column, expand Advanced, and turn **Format assistance** off (this also turns off **Entity matching** for that column). Entity matching can be turned off alone, keeping format assistance. Some UI versions offer a table-level "disable value sampling for all columns" option ("value sampling" is the older name). Repeat for every sensitive column or table in the agent. Recommended default for agents over sensitive columns: **disable on those columns**, and verify the result in your UI.
 
 ## Genie Code and agentic execution
 

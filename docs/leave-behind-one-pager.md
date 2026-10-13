@@ -26,7 +26,7 @@
 |---|---|
 | Unity Catalog masks and filters on sensitive columns | Redacted before anything is sampled |
 | Minimum tables and columns per Genie Agent | Less data in prompts |
-| Turn off value sampling on sensitive spaces | Schema-only prompts |
+| Turn off Prompt Matching (value sampling) on sensitive columns | Keeps sampled values out of prompts |
 | No secrets or PII in instructions and descriptions | Visible to viewers and sent to the model |
 | Geo enforcement and partner-powered settings | Residency and provider choice |
 | Customer-managed keys, Private Link, egress control | Key custody and network |

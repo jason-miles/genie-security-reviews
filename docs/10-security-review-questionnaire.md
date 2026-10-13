@@ -25,7 +25,7 @@ A question bank for customers to send, or for Databricks teams to pre-answer. "E
 | # | Question | Evidence |
 |---|---|---|
 | C1 | Exact categories of data sent per call (prompt, names, descriptions, values, result samples, cell outputs, file uploads)? | Data inventory ([02](02-what-data-reaches-an-llm.md)) |
-| C2 | Can value sampling be disabled per Genie Agent? Are result samples sent in Chat and Agent modes? | Product confirmation |
+| C2 | Can Prompt Matching (value sampling) be disabled on every sensitive column, and does it fully remove sampled values from prompts? Are result samples sent in Chat and Agent modes? | Product confirmation |
 | C3 | How are masked tables, row filters, and views over them treated in sampling? | Product confirmation |
 | C4 | What is stored by Databricks, where, for how long, encrypted how? | Retention statement |
 | C5 | Are conversations covered by customer-managed keys? | CMK scope |

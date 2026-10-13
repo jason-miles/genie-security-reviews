@@ -38,7 +38,7 @@ Use per workspace. Record the value found, the owner, and the date.
 ## D. Per Genie Agent
 
 - [ ] Minimum tables and columns only.
-- [ ] Prompt Matching / value sampling disabled for sensitive spaces.
+- [ ] Prompt Matching (format assistance and entity matching) disabled on every sensitive column; checked per column, or per table where offered.
 - [ ] Instructions and example SQL contain no secrets, PII, or customer names.
 - [ ] Permissions: business users get run-only; manage rights tightly held.
 - [ ] Space owner is a least-privilege identity.
@@ -67,7 +67,7 @@ Use per workspace. Record the value found, the owner, and the date.
 |---|---|
 | Region | In-country or approved region |
 | Cross-Geo | As required; documented as a transfer where ON |
-| Value sampling | Off on sensitive spaces |
+| Value sampling (Prompt Matching) | Off on sensitive columns |
 | Masks/filters | On base tables for all regulated columns |
 | Keys | CMK |
 | Network | Private Link; egress locked |
