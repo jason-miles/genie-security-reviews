@@ -37,7 +37,14 @@ Managed services keys cover AI/BI dashboards, **Genie Agents**, notebooks, secre
 
 ## Regions and Geos
 
-Azure regions map to Geos. EU regions fall in the EU data boundary where Designated Services are available natively. Regions such as South Africa North, Qatar Central, and UAE North can depend on cross-Geo processing for Genie; confirm in the availability matrix. For a policy that forbids processing outside a country, enforcing the Geo setting turns the features off where no native endpoint exists.
+Azure's designated-services page lists availability per country or region (see the table in [04](../04-data-sovereignty-and-geos.md#azure-by-country-or-region)). Key results for Genie Agents, Genie One, and Genie Code, as checked 13 Oct 2026:
+
+- **Native:** United States and the EU Data Boundary for every Genie feature; Japan and Australia for most.
+- **Cross-Geo required:** South Africa, UAE, and Mexico for every Genie feature except App Builder (not available there); the UK, Canada, Brazil, India, and South Korea for Agent mode, Genie One, and agentic Genie Code.
+- **Not available:** Qatar for every Genie feature. Genie App Builder is also unavailable in Mexico, South Korea, UAE, and South Africa.
+- For AI assistive features in US and EU regions, Americas workspaces use a US-based model and European workspaces (EU Data Boundary and UK) use a Europe-based model, whatever the cross-Geo setting.
+
+For a policy that forbids processing outside a country, enforcing the Geo setting turns the cross-Geo features off.
 
 ## Azure-specific review points
 

@@ -220,7 +220,7 @@ function init() {
   Array.prototype.forEach.call(document.querySelectorAll("[data-raw]"), function (a) {
     a.href = REPO.replace("/blob/", "/raw/") + a.getAttribute("data-raw");
   });
-  var tot = 29;
+  var tot = 31;
   Array.prototype.forEach.call(document.querySelectorAll("[data-count]"), function (n) {
     var v = Number(n.getAttribute("data-count"));
     n.style.width = (v / tot * 100) + "%";

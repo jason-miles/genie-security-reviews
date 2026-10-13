@@ -36,7 +36,7 @@ Documented defaults: cross-Geo is **enabled by default** for workspaces in Geos 
 
 The designated-services page states: "Your data is not stored outside of your workspace's Geo regardless of this setting." It is a statement about storage, not processing.
 
-With cross-Geo processing **disabled**, the same page lists these countries as processing AI assistive features locally: Brazil, Canada, Japan, Korea, Singapore, Hong Kong, Indonesia, and the United Kingdom. A feature marked with an asterisk is available only when cross-Geo processing is enabled.
+With cross-Geo processing **disabled**, the page lists these countries as processing designated services within the same country: Brazil, Canada, Japan, Korea, Singapore, and the United Kingdom (footnote ‡ in the tables below). A feature marked with an asterisk is available only when cross-Geo processing is enabled.
 
 ## Processing vs storage: pick the policy first
 
@@ -46,19 +46,58 @@ With cross-Geo processing **disabled**, the same page lists these countries as p
 | No **processing** outside the country | Cannot be met for features lacking native in-country availability; enforcing the Geo makes them unavailable |
 | No processing outside a **region bloc** (for example EU) | Use a workspace in a Geo where the feature is native (for example the EU data boundary) |
 
-## Availability by Geo (designated-services page, AWS, checked 13 Oct 2026)
+## Availability by Geo and region (designated-services pages, checked 13 Oct 2026)
 
-| Geo | Genie Agents Chat | Genie Code chat and cell actions | AI/BI dashboards | AI-generated comments |
-|---|---|---|---|---|
-| Americas | Available (‡) | Available (‡) | Available (‡) | Available (‡) |
-| Asia | Available (‡) | Available (‡) | Available (‡) | Available (‡) |
-| Australia and New Zealand | Available | Available | Available | Cross-Geo required (*) |
-| Europe | Available (‡) | Available (‡) | Available (‡) | Available (‡) |
-| India | Available | Available (‡) | Available | Cross-Geo required (*) |
-| Mainland China | Not available | Not available | Not available | Cross-Geo required (*) |
-| Middle East and Africa | Cross-Geo required (*) | Cross-Geo required (*) | Cross-Geo required (*) | Cross-Geo required (*) |
+Key: **Native** = processed in the workspace's Geo. **Cross-Geo** = available only when cross-Geo processing is enabled (\* in the source). **No** = not available. The footnote markers explain extra routing and are listed below each table.
 
-Key: **\*** available only when cross-Geo processing is enabled; **‡** country-specific processing when cross-Geo is disabled (countries listed above); unmarked means available natively in the Geo. The page states Genie One chat and Genie App Builder follow the same pattern as Genie Agents Agent mode, which it does not itemize in the extract reviewed; confirm Agent mode, One, and App Builder per region. Availability differs by cloud, so repeat this check against the Azure and GCP pages.
+### AWS and GCP (by Geo)
+
+AWS rows below were read as raw table cells. The GCP page showed the same pattern, with one difference noted.
+
+| Geo | Genie Agents Chat | Agent mode and Genie One chat | Genie Code agentic | Genie Code chat and cell actions | AI/BI dashboards | AI-generated comments | Genie App Builder (AWS) |
+|---|---|---|---|---|---|---|---|
+| Americas | Native ‡ | Native | Native | Native ‡ | Native ‡ | Native ‡ | Native |
+| Asia | Native § (AWS), ‡ (GCP) | Native † | Native | Native ‡ | Native ‡ | Native ‡ | Cross-Geo |
+| Australia and New Zealand | Native | Native | Native | Native | Native | Cross-Geo | Cross-Geo |
+| Europe | Native ‡ | Native | Native | Native ‡ | Native ‡ | Native ‡ | Native |
+| India | Native | Cross-Geo | Cross-Geo | Native | Native | Cross-Geo | Cross-Geo |
+| Mainland China | No | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No |
+| Middle East and Africa | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No |
+
+- **‡** When cross-Geo is disabled, traffic is processed within the same country or territory as the workspace for **Brazil, Canada, Japan, Korea, Singapore, and the United Kingdom**.
+- **†** Asia Geo traffic can be sent for processing within regions in Japan, South Korea, or Singapore.
+- **§** Appears in the AWS Asia cell for Genie Agents Chat; the footnote text was not captured. Check the page.
+- Genie App Builder has no row on the GCP page; treat as not available on GCP.
+
+### Azure (by country or region)
+
+Azure's page lists regions individually (and labels the model provider "Azure AI Services" for Chat mode, and "Anthropic on Databricks" for Agent mode and Genie One).
+
+| Region | Genie Agents Chat | Agent mode and Genie One chat | Genie Code agentic | Genie Code chat and cell actions | AI/BI dashboards | AI-generated comments | Genie App Builder |
+|---|---|---|---|---|---|---|---|
+| United States | Native | Native | Native | Native | Native | Native | Native |
+| Canada | Native | Cross-Geo | Cross-Geo | Native | Native | Native | Cross-Geo |
+| Brazil | Native | Cross-Geo | Cross-Geo | Native | Native | Native | Cross-Geo |
+| Mexico | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No |
+| Asia Pacific | Cross-Geo | Cross-Geo | Cross-Geo | Native | Native | Native | Cross-Geo |
+| Japan | Native | Native | Native | Native | Native | Native | Cross-Geo |
+| South Korea | Native | Cross-Geo | Cross-Geo | Native | Native | Native | No |
+| Australia | Native | Native | Native | Native | Native | Native | Cross-Geo |
+| EU Data Boundary | Native | Native | Native | Native | Native | Native | Native |
+| United Kingdom | Native | Cross-Geo | Cross-Geo | Native | Native | Native | Cross-Geo |
+| UAE | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No |
+| Qatar | No | No | No | No | No | No | No |
+| India | Native | Cross-Geo | Cross-Geo | Native | Native | Native | Cross-Geo |
+| South Africa | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No |
+
+Azure states that for AI assistive features in US and EU regions, regardless of the cross-Geo setting, workspaces in the Americas use a US-based model and workspaces in Europe (EU Data Boundary and UK) use a Europe-based model, and Designated Services in the EU Data Boundary rely on EU data centers. It also notes that where several models serve a feature, some may be available only with cross-Geo enabled; see the model-availability-by-region page.
+
+### Reading the tables
+
+- A feature that is **Native** in your Geo or region is processed there with enforcement ON.
+- A feature marked **Cross-Geo** stops working if you enforce the Geo. For a policy that forbids processing outside a country, that decides the question.
+- **No** means the feature is not offered in that region at all (for example every Genie feature in Qatar on Azure).
+- The tables differ by cloud. Re-check the page for your cloud and region before any commitment.
 
 Public documentation does **not** state which Geo processes the content when cross-Geo is used. Do not assume it is a specific region; ask the account team.
 

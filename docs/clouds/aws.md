@@ -37,7 +37,7 @@ The AWS CMK page (Enterprise tier) lists managed-services coverage for AI/BI das
 
 ## Regions and Geos
 
-Workspace region determines the Geo and whether cross-Geo is the default. Regions in the US and EU are processed in-Geo by native endpoints for Designated Services; regions elsewhere (for example some Asia, Middle East and Africa regions) can depend on cross-Geo. Check the AWS designated-services availability matrix for your exact region.
+Workspace region determines the Geo and whether cross-Geo is the default. Regions in the US and EU are processed in-Geo by native endpoints for Designated Services; regions elsewhere (for example some Asia, Middle East and Africa regions) can depend on cross-Geo. The verified AWS table is in [04](../04-data-sovereignty-and-geos.md#aws-and-gcp-by-geo): for example Genie Agents Chat is native in the Americas, Europe, Australia and New Zealand, and India, but needs cross-Geo in the Middle East and Africa and is unavailable in Mainland China; Genie App Builder is unavailable in Mainland China and the Middle East and Africa.
 
 ## AWS-specific review points
 
