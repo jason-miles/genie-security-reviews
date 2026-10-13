@@ -20,7 +20,7 @@ Databricks states it "sends only the data needed to provide the service," that t
 
 Public data lists do not mention result rows; Databricks field material does. Treat result samples as sent until confirmed otherwise ([open question Q1](../notes/open-questions.md)). Because the SQL ran as the user, filtered and masked rows are already redacted before sampling.
 
-**Prompt Matching** (format assistance and entity matching) places sampled column values in the prompt, described in field material as up to 24 per column, limited to values the user can see.
+**Prompt Matching** (format assistance and entity matching) offers representative and distinct column values to the model. Public documentation states these values are generated with the **author's** data permissions, so they are not limited to what the asking user can see. Entity matching cannot be enabled on tables with row filters or column masks. Field material describes up to 24 sampled values per column in the prompt; that figure is unconfirmed. See [06](06-access-control-and-governance.md#prompt-matching-value-sampling).
 
 ## Mode matters
 

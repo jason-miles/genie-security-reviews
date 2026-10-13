@@ -29,10 +29,11 @@ Implication: an AWS workspace can have a prompt processed by the **Azure OpenAI 
 
 ## CMK coverage
 
-The managed-services key covers control-plane data including notebooks, secrets, SQL queries, AI/BI dashboards, and Genie Agents. Two limits apply:
+The AWS CMK page (Enterprise tier) lists managed-services coverage for AI/BI dashboards, notebook source and metadata, PAT and Git credentials, secrets, SQL queries and query history, AI Search indexes, Lakebase project data, and Model Serving artifacts. Points to note:
 
-- AI/BI dashboards: only those created after 1 Nov 2024 are CMK-compatible.
-- Genie Agents: the AWS page reviewed states no creation-date cutoff (Azure documents 10 April 2025), and does not say whether conversation data beyond the agent definitions is covered. Confirm both (Q8).
+- **Genie Agents are not listed** on the AWS page, unlike the Azure page. Whether Genie Agent definitions and conversations are covered on AWS must be confirmed (Q8).
+- Only AI/BI dashboards created after 1 Nov 2024 are CMK-compatible.
+- With a managed-services key, fields such as `statement_text` in the query-history system table appear empty until a customer-managed key is also configured in the system catalog. Plan this before relying on query history for audit.
 
 ## Regions and Geos
 

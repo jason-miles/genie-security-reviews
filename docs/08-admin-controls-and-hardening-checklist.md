@@ -22,7 +22,7 @@ Use per workspace. Record the value found, the owner, and the date.
 | 5 | Customer-managed keys | Account console | Cover managed services and storage; check Genie conversation-history coverage |
 | 6 | Private Link, network connectivity, serverless egress control | Account/workspace | Lock down data-plane egress, including for serverless |
 | 7 | SSO, SCIM, MFA | Identity provider | Joiner-mover-leaver governs Genie access |
-| 8 | Genie Code approval policy | Workspace/user settings | Default ask-every-time; review auto-approve use for production workspaces |
+| 8 | Genie Code approval policy | Workspace/user settings | Public docs state auto-approve is the default; set ask-before-running for production and regulated workspaces |
 | 9 | MCP servers and skills | Workspace admin | Allow-list; treat as software entering the trust boundary |
 | 10 | Genie One external connectors | Workspace admin | Disable for restricted workloads |
 

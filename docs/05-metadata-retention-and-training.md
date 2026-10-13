@@ -36,7 +36,7 @@ Some Databricks field material states that Databricks may keep inputs and output
 
 - In transit: TLS between Databricks and model partners and throughout the platform.
 - At rest: AES-256 for the control-plane database and workspace data.
-- Customer-managed keys (CMK) for **managed services** cover control-plane data including Genie Agents (AWS and Azure documentation). Azure documents that only Genie Agents created after **10 April 2025** are CMK-compatible, and AI/BI dashboards after 1 Nov 2024. Public pages do not state whether conversation data beyond the agents is covered on every cloud; confirm (Q8). See the [cloud pages](clouds/aws.md).
+- Customer-managed keys (CMK) for **managed services** cover control-plane data. The **Azure** page lists Genie Agents and states only agents created after **10 April 2025** are CMK-compatible. The **AWS and GCP** CMK pages do not list Genie Agents, and AI/BI dashboards are compatible only if created after 1 Nov 2024. Whether conversation data is covered is not stated on any cloud; confirm (Q8). See the [cloud pages](clouds/aws.md).
 - CMK does not extend to a model provider's own hosted weights or infrastructure.
 
 ## What "metadata" means here

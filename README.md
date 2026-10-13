@@ -15,6 +15,8 @@ All content is **vendor-neutral and customer-neutral**. It covers **AWS, Azure, 
 
 ## Start here
 
+- **Interactive home page:** open [`index.html`](index.html) (a self-contained site with a question tracer; see [Hosting the site](#hosting-the-site)).
+
 - **Short answers:** [FAQ](docs/09-faq.md)
 - **Running a review:** [Security review questionnaire](docs/10-security-review-questionnaire.md) and [Hardening checklist](docs/08-admin-controls-and-hardening-checklist.md)
 
@@ -56,3 +58,11 @@ All content is **vendor-neutral and customer-neutral**. It covers **AWS, Azure, 
 ## Contributing
 
 Keep content customer-neutral: no customer names, workspace IDs, internal-only documents, or unreleased roadmap. Cite a public source for every factual claim and mark anything unverified as such in `notes/open-questions.md`.
+
+## Hosting the site
+
+`index.html` plus `assets/` is a static site with no third-party requests and a strict Content Security Policy.
+
+- **GitHub Pages:** repository Settings, Pages, deploy from branch `main`, folder `/ (root)`. `.nojekyll` is included.
+- **Apache:** copy `index.html`, `assets/`, and `.htaccess` to the web root. `.htaccess` sets the CSP, `nosniff`, `no-referrer`, frame denial, and HSTS (needs `mod_headers`).
+- **Locally:** `python3 -m http.server --bind 127.0.0.1` in the repo root.

@@ -36,7 +36,7 @@ Gemini and other Google models appear only as customer-selected models in Databr
 
 ## CMK coverage
 
-Managed services covers control-plane data such as notebooks, secrets, SQL queries, and AI/BI dashboards (only dashboards created after 1 Nov 2024). The public GCP page reviewed does not specify coverage for Genie conversation data; confirm (Q8). Serverless disks are ephemeral and excluded from persistent-disk CMK.
+The GCP CMK page (Enterprise tier) lists managed-services coverage for AI/BI dashboards (only those created after 1 Nov 2024), notebook source and metadata, PAT and Git credentials, secrets, SQL queries and query history, and Model Serving container images. **Genie Agents are not listed**; confirm coverage (Q8). As on AWS, `statement_text` in query history appears empty until a key is also configured in the system catalog. Serverless disks are ephemeral and excluded from persistent-disk CMK.
 
 ## Regions and Geos
 

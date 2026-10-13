@@ -17,7 +17,7 @@ Reviewed 13 Oct 2026. Rows marked with a cloud list differences; unmarked rows a
 | Feature | Setting **enabled** | Setting **disabled** |
 |---|---|---|
 | Genie Code autocomplete | Databricks-hosted | Databricks-hosted |
-| Genie Code non-agentic (chat, cell actions) | **AWS/GCP:** Azure OpenAI service and OpenAI on Databricks. **Azure:** Azure OpenAI service | Databricks-hosted for non-CSP; CSP depends on compliance standard (HIPAA supported) |
+| Genie Code non-agentic (chat, cell actions) | **AWS/GCP:** Azure OpenAI service and OpenAI on Databricks. **Azure:** Azure OpenAI service | Databricks-hosted for non-CSP. On CSP workspaces: **AWS** HIPAA (all supported regions), FedRAMP Moderate (US), PCI-DSS and HITRUST (US, Australia and New Zealand); **Azure** HIPAA only; other standards unsupported |
 | Genie Code agentic | **AWS/GCP:** Azure OpenAI, OpenAI on Databricks, Anthropic on Databricks. **Azure:** Azure OpenAI and Anthropic on Databricks | Not available |
 | Genie Agents Chat mode | **AWS/GCP:** Azure OpenAI service and OpenAI on Databricks. **Azure:** Azure OpenAI service | Not available |
 | Genie Agents Agent mode | **AWS/GCP:** OpenAI on Databricks and Anthropic on Databricks. **Azure:** Anthropic on Databricks | Not available |

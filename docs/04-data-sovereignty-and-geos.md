@@ -34,7 +34,9 @@ The wording is inverted: enforcement ON means cross-Geo OFF.
 
 Documented defaults: cross-Geo is **enabled by default** for workspaces in Geos outside the US and EU that have no compliance security profile. Workspaces with a compliance security profile do not get cross-Geo enabled by default.
 
-Databricks states persistent customer data is **not stored** outside the workspace Geo because of this setting. It is a statement about storage, not processing.
+The designated-services page states: "Your data is not stored outside of your workspace's Geo regardless of this setting." It is a statement about storage, not processing.
+
+With cross-Geo processing **disabled**, the same page lists these countries as processing AI assistive features locally: Brazil, Canada, Japan, Korea, Singapore, Hong Kong, Indonesia, and the United Kingdom. A feature marked with an asterisk is available only when cross-Geo processing is enabled.
 
 ## Processing vs storage: pick the policy first
 

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Genie security reviews: what leaves your boundary</title>
+<meta name="description" content="Vendor-neutral answers on Databricks Genie security, data sovereignty, resiliency, and what happens to metadata with frontier LLMs, across AWS, Azure, and GCP.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 1l12 7-12 7z' fill='%23e8321e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#tracer">Skip to the question tracer</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="./"><i></i>Genie security reviews</a>
+    <span class="stamp">Reviewed 13 Oct 2026</span>
+    <nav aria-label="Primary">
+      <a href="#tracer">Trace a question</a>
+      <a href="#answers">Answers</a>
+      <a href="#library">Library</a>
+      <a href="#confidence">How sure</a>
+      <a href="https://github.com/jason-miles/genie-security-reviews">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Genie Agents · Genie One · Genie Code · AWS · Azure · GCP</p>
+    <h1>What leaves your boundary when someone asks <em>Genie</em> a question?</h1>
+    <p class="lede">Choose a cloud, a feature, and the partner-powered setting. The tracer shows which model hosts can receive the request, what is sent, and what is kept. Each line is graded by how it was checked.</p>
+
+    <div class="banner" role="note">
+      <b id="days">&nbsp;</b>
+      <span>until the partner-powered AI features setting is removed on <strong>1 Nov 2026</strong>. Record your current value first; later changes go through your Databricks account team.</span>
+    </div>
+
+    <div class="tracer" id="tracer">
+      <div class="controls">
+        <fieldset>
+          <legend>Cloud</legend>
+          <div class="opts">
+            <label><input type="radio" name="cloud" value="aws" checked><span>AWS</span></label>
+            <label><input type="radio" name="cloud" value="azure"><span>Azure</span></label>
+            <label><input type="radio" name="cloud" value="gcp"><span>GCP</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Feature</legend>
+          <div class="opts">
+            <label><input type="radio" name="feature" value="chat" checked><span>Genie Agents, Chat</span></label>
+            <label><input type="radio" name="feature" value="agent"><span>Genie Agents, Agent mode</span></label>
+            <label><input type="radio" name="feature" value="one"><span>Genie One chat</span></label>
+            <label><input type="radio" name="feature" value="codeagent"><span>Genie Code, agentic</span></label>
+            <label><input type="radio" name="feature" value="codechat"><span>Genie Code, chat</span></label>
+            <label><input type="radio" name="feature" value="auto"><span>Genie Code, autocomplete</span></label>
+            <label><input type="radio" name="feature" value="builder"><span>Genie App Builder</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Partner-powered AI features</legend>
+          <div class="opts">
+            <label><input type="radio" name="partner" value="on" checked><span>On</span></label>
+            <label><input type="radio" name="partner" value="off"><span>Off</span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="stage">
+        <svg viewBox="0 0 960 280" role="img" aria-labelledby="dia-t dia-d">
+          <title id="dia-t">Path of one Genie question</title>
+          <desc id="dia-d">The user's question reaches the Databricks control plane, which sends prompt content across a boundary to a model host and receives SQL or text back. The SQL runs on your warehouse over your storage.</desc>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+          </defs>
+          <text class="zone-label" x="30" y="22">Your cloud account and region</text>
+          <text class="zone-label" x="365" y="22">Databricks control plane</text>
+          <text class="zone-label" x="700" y="22">Model host</text>
+
+          <line x1="312" y1="34" x2="312" y2="270" stroke="#9fb0b8" stroke-width="1.2" stroke-dasharray="3 5"/>
+          <line class="boundary" x1="648" y1="34" x2="648" y2="270"/>
+          <text class="boundary-label" x="656" y="262">PROMPT CONTENT CROSSES HERE</text>
+
+          <g class="node"><rect x="30" y="40" width="230" height="56" rx="10"/><text x="46" y="64">Person asking</text><text class="sub" x="46" y="82">Signed in; runs as themselves</text></g>
+          <g class="node"><rect x="30" y="120" width="230" height="56" rx="10"/><text x="46" y="144">SQL warehouse</text><text class="sub" x="46" y="162">Runs the SQL as the user</text></g>
+          <g class="node"><rect x="30" y="200" width="230" height="56" rx="10"/><text x="46" y="224">Your storage</text><text class="sub" x="46" y="242">Tables stay in your region</text></g>
+          <g class="node"><rect x="365" y="112" width="230" height="64" rx="10"/><text x="381" y="138">Genie orchestration</text><text class="sub" x="381" y="156">Builds context, stores the conversation</text></g>
+          <g class="node host" id="host-node"><rect x="700" y="112" width="230" height="64" rx="10"/><text id="host-name" x="716" y="138">Model host</text><text class="sub" id="host-sub" x="716" y="156">&nbsp;</text></g>
+
+          <path class="flow" d="M260 78 C310 78 320 128 365 128" marker-end="url(#arrow)"/>
+          <path class="flow" d="M595 134 L698 134" marker-end="url(#arrow)"/>
+          <path class="flow back" d="M698 156 L597 156" marker-end="url(#arrow)"/>
+          <path class="flow back" d="M365 150 L262 150" marker-end="url(#arrow)"/>
+          <path class="flow" d="M145 178 L145 198" marker-end="url(#arrow)"/>
+          <circle class="packet" id="packet" cx="595" cy="134" r="5"/>
+        </svg>
+      </div>
+
+      <div class="readout" aria-live="polite">
+        <div class="cell">
+          <h2>Model hosts</h2>
+          <p class="status" id="status"></p>
+          <ul class="items" id="hosts"></ul>
+        </div>
+        <div class="cell">
+          <h2>Sent to the model</h2>
+          <ul class="items" id="sent"></ul>
+        </div>
+        <div class="cell">
+          <h2>Kept afterwards</h2>
+          <ul class="items" id="kept"></ul>
+        </div>
+      </div>
+      <div class="readout one-col">
+        <div class="cell">
+          <h2>Confirm in writing before sign-off</h2>
+          <ul class="items" id="confirm"></ul>
+        </div>
+      </div>
+      <div class="legend" aria-label="Grade key">
+        <span><span class="chip V">V</span> Checked against the source text</span>
+        <span><span class="chip S">S</span> From a summary; re-check</span>
+        <span><span class="chip D">D</span> Databricks-provided; confirm in writing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="answers">
+  <div class="wrap">
+    <h2 class="sec">Questions reviewers ask first</h2>
+    <p class="sub-lede">Short answers with the page that backs each one.</p>
+    <div class="qa">
+      <details>
+        <summary>Is Genie sending only metadata to an LLM?</summary>
+        <p>No. Databricks lists the prompt, table and column names and descriptions, relevant data values, instructions, and example SQL. Agent mode, Genie One, and Genie Code can also send query results, cell outputs, or table samples. All of it respects Unity Catalog permissions, with one documented exception: Prompt Matching values use the author's permissions. <a data-doc="docs/02-what-data-reaches-an-llm.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/02-what-data-reaches-an-llm.md">Read: what data reaches an LLM</a></p>
+      </details>
+      <details>
+        <summary>Which model answers: OpenAI, Anthropic, or Google?</summary>
+        <p>It depends on the feature, the mode, and the cloud. Chat mode uses the Azure OpenAI service, with OpenAI on Databricks added on AWS and GCP. Agent mode and Genie One use Anthropic on Databricks. Google Gemini is not a host for Genie assistive features; it is a model you can select elsewhere. <a data-doc="docs/03-model-providers-by-cloud.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/03-model-providers-by-cloud.md">Read: model providers by cloud</a></p>
+      </details>
+      <details>
+        <summary>Do the model partners keep or train on our data?</summary>
+        <p>Databricks states partners use zero-data-retention endpoints, including no retention for abuse monitoring, and that your data is not used to train foundation models offered to third parties. Databricks itself stores conversation history, encrypted. <a data-doc="docs/05-metadata-retention-and-training.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/05-metadata-retention-and-training.md">Read: metadata, retention, and training</a></p>
+      </details>
+      <details>
+        <summary>Can we keep processing inside our country or Geo?</summary>
+        <p>Your tables and SQL stay in your region. Model processing follows the Geo setting. Where a Geo has no native endpoint, the feature works only with cross-Geo processing on, and enforcing the Geo turns it off. Decide first whether your policy forbids processing or only storage outside the country. <a data-doc="docs/04-data-sovereignty-and-geos.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/04-data-sovereignty-and-geos.md">Read: sovereignty and Geos</a></p>
+      </details>
+      <details>
+        <summary>Can a user see more through Genie than they can see directly?</summary>
+        <p>Not through interactive use: queries run as the user, and row filters and column masks apply before anything is sampled. The risks are configuration: a shared service principal on the API, secrets in instructions, Prompt Matching values generated by a highly privileged author, and views over masked tables. <a data-doc="docs/06-access-control-and-governance.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/06-access-control-and-governance.md">Read: access control and governance</a></p>
+      </details>
+      <details>
+        <summary>What happens when a model provider or region is unavailable?</summary>
+        <p>There is no user model picker for assistive features, and no Genie-specific SLA or recovery target is published. Plan fallbacks such as certified dashboards, and put the questions to your account team. <a data-doc="docs/07-resiliency-and-availability.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/07-resiliency-and-availability.md">Read: resiliency and availability</a></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="library">
+  <div class="wrap">
+    <h2 class="sec">The library</h2>
+    <p class="sub-lede">Everything is customer-neutral. Open any page on GitHub, or download the working files.</p>
+    <div class="lib">
+      <div>
+        <h3>Understand</h3>
+        <ul>
+          <li><a data-doc="docs/01-architecture-and-data-flow.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/01-architecture-and-data-flow.md">Architecture and data flow<small>Planes and the life of a question</small></a></li>
+          <li><a data-doc="docs/02-what-data-reaches-an-llm.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/02-what-data-reaches-an-llm.md">What data reaches an LLM<small>Per-feature inventory</small></a></li>
+          <li><a data-doc="docs/03-model-providers-by-cloud.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/03-model-providers-by-cloud.md">Model providers by cloud<small>OpenAI, Anthropic, Google, Databricks</small></a></li>
+          <li><a data-doc="docs/05-metadata-retention-and-training.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/05-metadata-retention-and-training.md">Metadata, retention, training<small>What is stored, where</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Decide</h3>
+        <ul>
+          <li><a data-doc="docs/04-data-sovereignty-and-geos.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/04-data-sovereignty-and-geos.md">Sovereignty and Geos<small>Processing versus storage</small></a></li>
+          <li><a data-doc="docs/06-access-control-and-governance.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/06-access-control-and-governance.md">Access control and governance<small>Unity Catalog, identity, audit</small></a></li>
+          <li><a data-doc="docs/07-resiliency-and-availability.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/07-resiliency-and-availability.md">Resiliency and availability<small>Dependencies and fallbacks</small></a></li>
+          <li><a data-doc="docs/clouds/aws.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/clouds/aws.md">AWS</a></li>
+          <li><a data-doc="docs/clouds/azure.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/clouds/azure.md">Azure</a></li>
+          <li><a data-doc="docs/clouds/gcp.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/clouds/gcp.md">GCP</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Verify</h3>
+        <ul>
+          <li><a data-doc="docs/08-admin-controls-and-hardening-checklist.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/08-admin-controls-and-hardening-checklist.md">Hardening checklist<small>Settings to record per workspace</small></a></li>
+          <li><a data-doc="docs/10-security-review-questionnaire.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/10-security-review-questionnaire.md">Review questionnaire<small>37 questions, with evidence to request</small></a></li>
+          <li><a data-doc="notes/claims-register.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/notes/claims-register.md">Claims register<small>Every claim and how it was checked</small></a></li>
+          <li><a data-doc="notes/open-questions.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/notes/open-questions.md">Open questions<small>What only Databricks can confirm</small></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Share</h3>
+        <ul>
+          <li><a data-doc="docs/leave-behind-one-pager.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/leave-behind-one-pager.md">One-page leave-behind<small>For the customer's security team</small></a></li>
+          <li><a data-raw="templates/security-review-questionnaire.xlsx" href="https://github.com/jason-miles/genie-security-reviews/raw/main/templates/security-review-questionnaire.xlsx">Fillable questionnaire (xlsx)<small>Status dropdown and filters</small></a></li>
+          <li><a data-raw="templates/security-review-questionnaire.csv" href="https://github.com/jason-miles/genie-security-reviews/raw/main/templates/security-review-questionnaire.csv">Questionnaire (csv)</a></li>
+          <li><a data-doc="docs/09-faq.md" href="https://github.com/jason-miles/genie-security-reviews/blob/main/docs/09-faq.md">FAQ<small>Short sourced answers</small></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="confidence">
+  <div class="wrap">
+    <h2 class="sec">How sure are we?</h2>
+    <p class="sub-lede">Security references fail quietly when a summary gets repeated as fact. The claims register grades all 28 load-bearing claims. Promoting the summaries to verified is the next job.</p>
+    <div class="confidence" role="img" aria-label="16 claims verified against source text, 5 from summaries, 7 Databricks-provided and awaiting written confirmation">
+      <div class="V" data-count="16"></div>
+      <div class="S" data-count="5"></div>
+      <div class="D" data-count="7"></div>
+    </div>
+    <div class="counts">
+      <span><b>16</b>checked against source text</span>
+      <span><b>5</b>from a summary</span>
+      <span><b>7</b>Databricks-provided, confirm in writing</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Reviewed 13 Oct 2026 against public Databricks documentation for AWS, Azure, and GCP. Product behavior and providers change often; confirm against the linked sources and with your Databricks account team before relying on a statement in a regulated decision.</p>
+    <p>This is not a contractual commitment and not legal advice. No customer data or customer names appear in this library. This page loads no third-party scripts, fonts, or trackers.</p>
+  </div>
+</footer>
+</body>
+</html>

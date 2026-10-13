@@ -47,3 +47,4 @@ Facts drawn from these and used above: result-summary sampling, Prompt Matching 
 |---|---|
 | 2026-10-13 | Initial library: pages 00 to 11, provider matrix, open questions |
 | 2026-10-13 | Added AWS, Azure, GCP deep dives, one-page leave-behind, fillable questionnaire (xlsx/csv) and generator script; CMK coverage now cites public docs |
+| 2026-10-13 | Verbatim re-check of provider, Geo, CMK, Prompt Matching, and trust pages; five corrections (see notes/claims-register.md); added interactive home page (`index.html`) |

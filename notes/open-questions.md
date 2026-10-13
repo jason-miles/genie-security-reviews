@@ -11,7 +11,7 @@ Items that public documentation does not settle. Resolve with the Databricks acc
 | Q5 | Does Databricks hold inputs/outputs for an operational period for abuse prevention (periods such as 30 days have been quoted)? | Retention statement | Open. Get in writing |
 | Q6 | Which provider model classes carry abuse-monitoring retention exceptions (Anthropic safety-critical classes, OpenAI coding/routing scenarios)? | Retention statement | Open |
 | Q7 | Is any Google Gemini model used by a Genie assistive feature now or planned? | Provider disclosure | Public tables show none as of review |
-| Q8 | Genie conversation-history CMK: which Genie Agents are covered (creation-date cutoff)? | Key-custody claims | Open |
+| Q8 | Customer-managed keys: Azure lists Genie Agents (created after 10 Apr 2025). AWS and GCP CMK pages do not list Genie Agents or conversations. What is covered on each cloud? | Key-custody claims | Open |
 | Q9 | Genie-specific SLA, RTO/RPO, and failover behaviour. | Resiliency | Not published in sources reviewed |
 | Q10 | Are ABAC policies GA on all three clouds? | Hardening guidance | Varies by cloud and date |
 | Q11 | Is Genie Code agentic available with partner-powered features off on any compliance profile? | Regulated workspaces | Public docs: not available |

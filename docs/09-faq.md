@@ -3,7 +3,7 @@
 Short answers. Sources in [11](11-sources-and-change-log.md); depth in the linked pages.
 
 ### Does Genie send my data to an LLM?
-It sends what is needed: the question, table and column names and descriptions, instructions, example SQL, and relevant data values. Agent mode, Genie One, and Genie Code can also send query results, cell outputs, or table samples. All of it is bounded by the user's Unity Catalog permissions. See [02](02-what-data-reaches-an-llm.md).
+It sends what is needed: the question, table and column names and descriptions, instructions, example SQL, and relevant data values. Agent mode, Genie One, and Genie Code can also send query results, cell outputs, or table samples. Databricks states all of it respects Unity Catalog permissions. One documented nuance: Prompt Matching values are generated with the Genie Agent author's permissions, not the asker's. See [02](02-what-data-reaches-an-llm.md).
 
 ### Is it only metadata?
 No. Data values can reach the model. Older material that says Genie has "no access to row-level data" predates current documentation; treat values as in scope.
