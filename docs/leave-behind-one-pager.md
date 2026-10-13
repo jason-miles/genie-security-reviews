@@ -4,7 +4,7 @@
 
 ## Six things to know
 
-1. **Your data stays where you put it.** Tables stay in your cloud storage. SQL runs on your warehouse in your chosen region.
+1. **Your tables stay where you put them; model processing may not.** Tables stay in your cloud storage and SQL runs on your warehouse in your chosen region. The text sent to a model (see 2) is processed by the model host, which can be outside your region or cloud. Item 5 and your cloud's page in the library show where.
 2. **The model sees what the user could already see.** Prompts can include the question, table and column names and descriptions, instructions, example SQL, relevant data values, and for some features result samples or code outputs. Everything is bounded by Unity Catalog permissions, row filters, and column masks.
 3. **Queries run as the person asking.** Genie cannot widen access. Genie Agents generate read-only SQL.
 4. **Partners do not keep or train on it.** Databricks states model partners use zero-data-retention endpoints, including no retention for abuse monitoring, and that your inputs and outputs are not used to train foundation models offered to third parties. Databricks does store conversation history, encrypted.
