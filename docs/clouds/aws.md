@@ -29,7 +29,10 @@ Implication: an AWS workspace can have a prompt processed by the **Azure OpenAI 
 
 ## CMK coverage
 
-The managed-services key covers control-plane data including notebooks, secrets, SQL queries, AI/BI dashboards, and Genie Agents. Only AI/BI dashboards created after 1 Nov 2024 are CMK-compatible. Public AWS documentation does not state coverage of Genie conversation data beyond the agents; confirm (Q8).
+The managed-services key covers control-plane data including notebooks, secrets, SQL queries, AI/BI dashboards, and Genie Agents. Two limits apply:
+
+- AI/BI dashboards: only those created after 1 Nov 2024 are CMK-compatible.
+- Genie Agents: the AWS page reviewed states no creation-date cutoff (Azure documents 10 April 2025), and does not say whether conversation data beyond the agent definitions is covered. Confirm both (Q8).
 
 ## Regions and Geos
 
@@ -39,7 +42,7 @@ Workspace region determines the Geo and whether cross-Geo is the default. Region
 
 1. Document the Azure OpenAI hop for Genie Chat on an AWS workspace.
 2. Decide whether OpenAI on Databricks and Anthropic on Databricks endpoints meet the data-handling policy; both are Databricks-hosted.
-3. Back-end PrivateLink does not remove the model call: model traffic leaves the workspace via Databricks control-plane services, not via your VPC. Verify with network teams.
+3. Do not assume PrivateLink or VPC controls govern the model call. The public pages reviewed do not describe the network path of model traffic; ask the account team for it in writing (Q13) before the network team signs off.
 4. Align KMS key policies and rotation with the managed-services key.
 5. Consider compliance security profile (HIPAA, PCI-DSS, FedRAMP, and others): partner-powered features are off by default on such workspaces.
 

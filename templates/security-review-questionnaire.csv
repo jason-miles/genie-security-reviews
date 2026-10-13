@@ -1,4 +1,4 @@
-ID,Section,Question,Evidence to request,Response,Status,Cloud / region,Owner,Source and date,Notes
+﻿ID,Section,Question,Evidence to request,Response,Status,Cloud / region,Owner,Source and date,Notes
 A1,A. Scope,"Which products are in scope (Genie Agents, Genie One, Genie Code, App Builder, AI/BI assistive)? Which modes (Chat, Agent, autocomplete)?",Product list,,,,,,
 A2,A. Scope,"Cloud, region, and compliance security profile status of each workspace?",Workspace inventory,,,,,,
 A3,A. Scope,Data classes the in-scope tables hold?,Classification report,,,,,,
@@ -7,7 +7,7 @@ B2,B. Models and hosting,Which of them are hosted inside the Databricks security
 B3,B. Models and hosting,"What changes if partner-powered AI features is disabled, per feature?",Feature matrix,,,,,,
 B4,B. Models and hosting,"How are model versions changed, and is there notice?",Change policy,,,,,,
 B5,B. Models and hosting,Is any Google (Gemini) model used by any assistive feature?,Written statement,,,,,,
-C1,C. Data handling,"Exact categories of data sent per call (prompt, names, descriptions, values, result samples, cell outputs, file uploads)?",Data inventory ([02](02-what-data-reaches-an-llm.md)),,,,,,
+C1,C. Data handling,"Exact categories of data sent per call (prompt, names, descriptions, values, result samples, cell outputs, file uploads)?",Data inventory (02),,,,,,
 C2,C. Data handling,"Can Prompt Matching (value sampling) be disabled on every sensitive column, and does it fully remove sampled values from prompts? Are result samples sent in Chat and Agent modes?",Product confirmation,,,,,,
 C3,C. Data handling,"How are masked tables, row filters, and views over them treated in sampling?",Product confirmation,,,,,,
 C4,C. Data handling,"What is stored by Databricks, where, for how long, encrypted how?",Retention statement,,,,,,
@@ -26,7 +26,7 @@ F1,F. Resiliency,Published availability targets for the control plane and each G
 F2,F. Resiliency,Behaviour on provider or regional capacity failure; fallback?,Statement,,,,,,
 F3,F. Resiliency,RTO/RPO for Genie configuration and conversation data?,DR statement,,,,,,
 F4,F. Resiliency,Notice period for provider or architecture changes?,Policy,,,,,,
-G1,G. Access and governance,"Under which identity do queries run for UI, API (user and service principal), dashboards, embedding?",Run-as matrix ([06](06-access-control-and-governance.md)),,,,,,
+G1,G. Access and governance,"Under which identity do queries run for UI, API (user and service principal), dashboards, embedding?",Run-as matrix (06),,,,,,
 G2,G. Access and governance,Are row filters and column masks enforced before sampling?,Test result from your workspace,,,,,,
 G3,G. Access and governance,"Controls on agentic execution: approvals, hard blocks, egress?",Genie Code security paper,,,,,,
 G4,G. Access and governance,"MCP, skills, external connectors: who approves, what runs with user rights?",Admin config,,,,,,

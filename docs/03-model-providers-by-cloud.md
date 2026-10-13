@@ -22,7 +22,7 @@ Reviewed 13 Oct 2026. Rows marked with a cloud list differences; unmarked rows a
 | Genie Agents Chat mode | **AWS/GCP:** Azure OpenAI service and OpenAI on Databricks. **Azure:** Azure OpenAI service | Not available |
 | Genie Agents Agent mode | **AWS/GCP:** OpenAI on Databricks and Anthropic on Databricks. **Azure:** Anthropic on Databricks | Not available |
 | Genie One | **AWS/GCP:** OpenAI on Databricks and Anthropic on Databricks. **Azure:** Anthropic on Databricks | Chat unavailable; data-asset access retained |
-| Genie App Builder | **AWS/GCP:** OpenAI and Anthropic on Databricks. **Azure:** Azure OpenAI and Anthropic on Databricks | Not available |
+| Genie App Builder | **AWS:** OpenAI and Anthropic on Databricks. **Azure:** Azure OpenAI and Anthropic on Databricks. **GCP:** not available | Not available |
 | AI/BI dashboard assistive visualizations | Azure OpenAI service | Not available |
 | AI-generated comments | Azure OpenAI service | Databricks-hosted |
 | LLMs as judges, synthetic data generation | Azure OpenAI service | User must specify a model / not available |

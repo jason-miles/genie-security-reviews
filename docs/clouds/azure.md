@@ -43,9 +43,9 @@ Azure regions map to Geos. EU regions fall in the EU data boundary where Designa
 
 1. Distinguish a Databricks-managed Azure OpenAI deployment from a customer's own Azure OpenAI resource; the zero-retention statement applies to the former.
 2. Confirm the hosting cloud and region of Anthropic on Databricks for the workspace (Q3).
-3. Entra Conditional Access and Private Link protect user access; they do not govern model calls from the Databricks control plane.
+3. Entra Conditional Access and Private Link protect user access. The public pages reviewed do not describe the network path of model calls; get it in writing (Q13) before assuming those controls cover it.
 4. If the customer has an Azure policy prohibiting data processing outside a region, check Geo enforcement and Azure OpenAI region together.
-5. Where a compliance security profile is on, partner-powered features are off by default; Genie Code non-agentic falls back to Databricks-hosted models only under certain standards (HIPAA supported).
+5. With a compliance security profile on, partner-powered features are off by default. For Genie Code non-agentic with the setting off, the Azure page states Databricks-hosted models are available on non-CSP workspaces, and on CSP workspaces only with the **HIPAA** standard; other standards are not supported. Genie Agents, Genie One chat, and agentic Genie Code are unavailable with the setting off.
 
 ## Sources
 
