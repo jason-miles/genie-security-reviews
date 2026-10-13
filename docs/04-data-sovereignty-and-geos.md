@@ -52,21 +52,22 @@ Key: **Native** = processed in the workspace's Geo. **Cross-Geo** = available on
 
 ### AWS and GCP (by Geo)
 
-AWS rows below were read as raw table cells. The GCP page showed the same pattern, with one difference noted.
+Both pages were read as raw table cells. For the features below the AWS and GCP cells are identical; GCP has no Genie App Builder row.
 
 | Geo | Genie Agents Chat | Agent mode and Genie One chat | Genie Code agentic | Genie Code chat and cell actions | AI/BI dashboards | AI-generated comments | Genie App Builder (AWS) |
 |---|---|---|---|---|---|---|---|
 | Americas | Native ‡ | Native | Native | Native ‡ | Native ‡ | Native ‡ | Native |
-| Asia | Native § (AWS), ‡ (GCP) | Native † | Native | Native ‡ | Native ‡ | Native ‡ | Cross-Geo |
+| Asia | Native § | Native † | Native | Native ‡ | Native ‡ | Native ‡ | Cross-Geo |
 | Australia and New Zealand | Native | Native | Native | Native | Native | Cross-Geo | Cross-Geo |
 | Europe | Native ‡ | Native | Native | Native ‡ | Native ‡ | Native ‡ | Native |
 | India | Native | Cross-Geo | Cross-Geo | Native | Native | Cross-Geo | Cross-Geo |
 | Mainland China | No | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No |
 | Middle East and Africa | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No |
 
-- **‡** When cross-Geo is disabled, traffic is processed within the same country or territory as the workspace for **Brazil, Canada, Japan, Korea, Singapore, and the United Kingdom**.
+- **‡** When cross-Geo is disabled, traffic is processed within the same country or territory as the workspace for **Brazil, Canada, Japan, Korea, Singapore, and the United Kingdom**. For other countries in the Asia Geo, the feature is supported by models in the Asia Geo.
 - **†** Asia Geo traffic can be sent for processing within regions in Japan, South Korea, or Singapore.
-- **§** Appears in the AWS Asia cell for Genie Agents Chat; the footnote text was not captured. Check the page.
+- **§** For Genie Agents Chat in Asia: with cross-Geo disabled, traffic is processed in the same country for **Japan and Korea**; **Indonesia** traffic is processed in the Asia Geo; for other Asia countries, **including Singapore and Hong Kong**, the feature requires cross-Geo.
+- Foundation Model API requests from Americas workspaces are processed within the United States unless cross-Geo is enabled (footnote on the AWS page).
 - Genie App Builder has no row on the GCP page; treat as not available on GCP.
 
 ### Azure (by country or region)

@@ -40,7 +40,7 @@ The GCP CMK page (Enterprise tier) lists managed-services coverage for AI/BI das
 
 ## Regions and Geos
 
-GCP regions map to Geos like other clouds. The GCP page showed the same Geo pattern as AWS (table in [04](../04-data-sovereignty-and-geos.md#aws-and-gcp-by-geo)); the one difference found is the Asia cell for Genie Agents Chat. Genie App Builder has no row on the GCP page. Re-check the cell values for your Geo before committing.
+GCP regions map to Geos like other clouds. The GCP page showed the same Geo pattern as AWS (table in [04](../04-data-sovereignty-and-geos.md#aws-and-gcp-by-geo)); the cells for these features are identical. Genie App Builder has no row on the GCP page. Re-check the cell values for your Geo before committing.
 
 ## GCP-specific review points
 

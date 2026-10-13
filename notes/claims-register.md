@@ -34,7 +34,7 @@ Each load-bearing claim, where it appears, and how it was checked. Checked **13 
 | 19 | CSP standards list and enforcement (CIS Level 1, FIPS 140, Nitro, TLS 1.2+); account-level Genie One does not aggregate CSP workspaces | 08, aws | Compliance security profile (AWS) | V |
 | 20 | Designated-services list; AWS availability by Geo for Genie Agents Chat and Agent mode, Genie One, App Builder, Genie Code agentic and chat, AI/BI dashboards, comments (raw table cells) | 04, aws | Designated services (AWS) | V |
 | 29 | Azure availability by country or region for the same features; US and EU model-location statement | 04, azure | Designated services (Azure) | V |
-| 30 | GCP availability by Geo (same pattern as AWS; Asia Chat cell differs; no App Builder row) | 04, gcp | Designated services (GCP) | V |
+| 30 | GCP availability by Geo (raw rows identical to AWS for the features listed; no App Builder row); footnote definitions incl. § | 04, gcp | Designated services (GCP) | V |
 | 21 | Foundation-model families hosted by Databricks; listing does not send data; availability depends on region and cross-Geo | 03 | Hosted inference overview (AWS) | V |
 | 22 | Result-row sample sent for summarization | 02, Q1 | Field material | D |
 | 23 | Operational retention period (about 30 days quoted) | 05, Q5 | Field material | D |
@@ -67,9 +67,9 @@ Azure and GCP designated-services pages checked; AWS rows re-read as raw table c
 1. Mainland China is **cross-Geo** (not "not available") for Genie Code chat and AI/BI dashboards.
 2. India's Genie Code chat is native.
 3. The country list for footnote ‡ is Brazil, Canada, Japan, Korea, Singapore, and the UK. The earlier list wrongly added Hong Kong and Indonesia.
-4. Azure's page is per country or region, and shows Qatar with no Genie features and South Africa, UAE, and Mexico needing cross-Geo.
+4. The Asia cell for Genie Agents Chat carries footnote § on both AWS and GCP (an earlier note had GCP as ‡); the footnote is now captured.
+5. Azure's page is per country or region, and shows Qatar with no Genie features and South Africa, UAE, and Mexico needing cross-Geo.
 
 ## Next to verify
 
 - 18b: ask the account team whether Agent mode sends intermediate results to the model (open question Q1).
-- The AWS Asia cell footnote (§) for Genie Agents Chat, and the same cell on GCP (‡ versus §).
