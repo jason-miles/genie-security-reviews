@@ -1,5 +1,7 @@
 # Genie Security Reviews
 
+### [Open the interactive site: trace what leaves your boundary →](https://jason-miles.github.io/genie-security-reviews/)
+
 A reference library for Databricks customers (and the teams supporting them) answering security, data-sovereignty, resiliency, and LLM-handling questions about the **Genie family**:
 
 | Product | What it is |
@@ -15,7 +17,7 @@ All content is **vendor-neutral and customer-neutral**. It covers **AWS, Azure, 
 
 ## Start here
 
-- **Interactive home page:** open [`index.html`](index.html) (a self-contained site with a question tracer; see [Hosting the site](#hosting-the-site)).
+- **Interactive home page:** https://jason-miles.github.io/genie-security-reviews/ (a self-contained site with a question tracer; hosting options in [Hosting the site](#hosting-the-site)).
 
 - **Short answers:** [FAQ](docs/09-faq.md)
 - **Running a review:** [Security review questionnaire](docs/10-security-review-questionnaire.md) and [Hardening checklist](docs/08-admin-controls-and-hardening-checklist.md)
