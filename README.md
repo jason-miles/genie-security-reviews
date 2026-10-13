@@ -35,6 +35,19 @@ All content is **vendor-neutral and customer-neutral**. It covers **AWS, Azure, 
 | 10 | [Security review questionnaire](docs/10-security-review-questionnaire.md) | Question bank with evidence to request |
 | 11 | [Sources and change log](docs/11-sources-and-change-log.md) | Source URLs, review dates, changes |
 
+## Per-cloud deep dives
+
+| Cloud | Document |
+|---|---|
+| AWS | [docs/clouds/aws.md](docs/clouds/aws.md) |
+| Azure | [docs/clouds/azure.md](docs/clouds/azure.md) |
+| GCP | [docs/clouds/gcp.md](docs/clouds/gcp.md) |
+
+## Share with customers
+
+- [One-page leave-behind](docs/leave-behind-one-pager.md)
+- Fillable questionnaire: [`templates/security-review-questionnaire.xlsx`](templates/security-review-questionnaire.xlsx) (status dropdown, filters) or [`.csv`](templates/security-review-questionnaire.csv). Regenerate with `python3 scripts/build_questionnaire_sheet.py` (needs `openpyxl`).
+
 ## Working notes
 
 - [notes/open-questions.md](notes/open-questions.md): items not yet confirmed from public sources

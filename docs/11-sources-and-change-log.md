@@ -23,6 +23,10 @@ No Tier D document is reproduced in this repository.
 | Designated services | https://docs.databricks.com/aws/en/resources/designated-services |
 | Genie Agents concepts | https://docs.databricks.com/aws/en/genie-agents/concepts |
 | Databricks-hosted inference overview | https://docs.databricks.com/aws/en/machine-learning/model-serving/foundation-model-overview |
+| Customer-managed keys (AWS) | https://docs.databricks.com/aws/en/security/keys/customer-managed-keys |
+| Customer-managed keys (Azure) | https://learn.microsoft.com/en-us/azure/databricks/security/keys/customer-managed-keys |
+| Customer-managed keys (GCP) | https://docs.databricks.com/gcp/en/security/keys/customer-managed-keys |
+| Compliance security profile | https://docs.databricks.com/aws/en/security/privacy/security-profile |
 | Azure OpenAI abuse monitoring | https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/abuse-monitoring |
 | Databricks Security and Trust Center | https://www.databricks.com/trust |
 
@@ -42,3 +46,4 @@ Facts drawn from these and used above: result-summary sampling, Prompt Matching 
 | Date | Change |
 |---|---|
 | 2026-10-13 | Initial library: pages 00 to 11, provider matrix, open questions |
+| 2026-10-13 | Added AWS, Azure, GCP deep dives, one-page leave-behind, fillable questionnaire (xlsx/csv) and generator script; CMK coverage now cites public docs |
