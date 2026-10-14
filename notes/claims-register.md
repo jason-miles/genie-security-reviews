@@ -32,9 +32,9 @@ Each load-bearing claim, where it appears, and how it was checked. Checked **13 
 | 18a | Chat mode: single SQL query, no unstructured files or MCP; Agent mode: multi-step, can use attached volume files and MCP connectors | 02 | Genie Agents concepts (AWS) | V |
 | 18b | Agent mode sends intermediate query results back to the model (inferred from multi-step behavior; the page does not state it) | 02, tracer | Inference | S |
 | 19 | CSP standards list and enforcement (CIS Level 1, FIPS 140, Nitro, TLS 1.2+); account-level Genie One does not aggregate CSP workspaces | 08, aws | Compliance security profile (AWS) | V |
-| 20 | Designated-services list; AWS availability by Geo for Genie Agents Chat and Agent mode, Genie One, App Builder, Genie Code agentic and chat, AI/BI dashboards, comments (raw table cells) | 04, aws | Designated services (AWS) | V |
+| 20 | Designated-services list; AWS availability by Geo for Genie Agents Chat and Agent mode, Genie One, App Builder, Genie Code agentic and chat, AI/BI dashboards, comments and AI-based autocomplete (raw table cells) | 04, aws | Designated services (AWS) | V |
 | 29 | Azure availability by country or region for the same features; US and EU model-location statement | 04, azure | Designated services (Azure) | V |
-| 30 | GCP availability by Geo (raw rows identical to AWS for the features listed; no App Builder row); footnote definitions incl. § | 04, gcp | Designated services (GCP) | V |
+| 30 | GCP availability by Geo (raw rows identical to AWS for the features listed, including autocomplete; no App Builder row); footnote definitions incl. § | 04, gcp | Designated services (GCP) | V |
 | 21 | Foundation-model families hosted by Databricks; listing does not send data; availability depends on region and cross-Geo | 03 | Hosted inference overview (AWS) | V |
 | 22 | Result-row sample sent for summarization | 02, Q1 | Field material | D |
 | 23 | Operational retention period (about 30 days quoted) | 05, Q5 | Field material | D |

@@ -11,9 +11,12 @@ Reviewed 13 Oct 2026. Read with [03 Model providers](../03-model-providers-by-cl
 | Genie One | OpenAI on Databricks, Anthropic on Databricks |
 | Genie Code non-agentic | Azure OpenAI service, OpenAI on Databricks |
 | Genie Code agentic | Azure OpenAI, OpenAI on Databricks, Anthropic on Databricks |
+| Genie App Builder | OpenAI on Databricks, Anthropic on Databricks |
+| AI/BI dashboard assistive visualizations | Azure OpenAI service (not available with the setting off) |
+| AI-generated comments | Azure OpenAI service (Databricks-hosted with the setting off) |
 | Autocomplete | Databricks-hosted |
 
-Implication: an AWS workspace can have a prompt processed by the **Azure OpenAI service** (Microsoft-operated, a different cloud) in addition to Databricks-hosted OpenAI and Anthropic endpoints. List Microsoft as a model-hosting sub-processor in the review. Anthropic on Databricks is described as hosted by Databricks within its security perimeter.
+Implication: an AWS workspace can have a prompt processed by the **Azure OpenAI service** (Microsoft-operated, a different cloud) in addition to Databricks-hosted OpenAI and Anthropic endpoints. This includes dashboard visualizations and AI-generated comments, not only Genie chat. List Microsoft as a model-hosting sub-processor in the review. Anthropic on Databricks is described as hosted by Databricks within its security perimeter.
 
 ## Data plane building blocks
 

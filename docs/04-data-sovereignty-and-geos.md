@@ -93,6 +93,11 @@ Azure's page lists regions individually (and labels the model provider "Azure AI
 
 Azure states that for AI assistive features in US and EU regions, regardless of the cross-Geo setting, workspaces in the Americas use a US-based model and workspaces in Europe (EU Data Boundary and UK) use a Europe-based model, and Designated Services in the EU Data Boundary rely on EU data centers. It also notes that where several models serve a feature, some may be available only with cross-Geo enabled; see the model-availability-by-region page.
 
+### AI-based autocomplete (Databricks-hosted)
+
+- **AWS and GCP:** native in the Americas (US model) and Europe; cross-Geo required in Asia, Australia and New Zealand, India, Mainland China, and the Middle East and Africa.
+- **Azure:** native in the United States and the EU Data Boundary; cross-Geo required in every other listed region except Qatar, where it is not available.
+
 ### Reading the tables
 
 - A feature that is **Native** in your Geo or region is processed there with enforcement ON.

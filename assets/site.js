@@ -85,6 +85,7 @@ var FEATURES = {
 var NOTES = {
   "‡": "With cross-Geo off, traffic is processed in the same country or territory for Brazil, Canada, Japan, Korea, Singapore, and the United Kingdom. Elsewhere in the Geo, models in the Geo serve it.",
   "†": "Asia Geo traffic can be processed in Japan, South Korea, or Singapore.",
+  "°": "Americas workspaces use a US-based model.",
   "§": "With cross-Geo off, Japan and Korea process in-country and Indonesia in the Asia Geo. Other Asia countries, including Singapore and Hong Kong, need cross-Geo."
 };
 var GEO_NAMES = ["Americas", "Asia", "Australia and New Zealand", "Europe", "India", "Mainland China", "Middle East and Africa"];
@@ -93,7 +94,7 @@ var GEO_DATA = {
   agent:     ["N", "N†", "N", "N", "X", "X", "X"],
   codeagent: ["N", "N", "N", "N", "X", "X", "X"],
   codechat:  ["N‡", "N‡", "N", "N‡", "N", "X", "X"],
-  auto:      ["?", "?", "?", "?", "?", "?", "?"],
+  auto:      ["N\u00b0", "X", "X", "N", "X", "X", "X"],
   builder:   ["N", "X", "X", "N", "X", "-", "-"]
 };
 var GEO_DATA_GCP = JSON.parse(JSON.stringify(GEO_DATA));
