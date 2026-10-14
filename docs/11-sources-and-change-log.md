@@ -53,3 +53,4 @@ Facts drawn from these and used above: result-summary sampling, Prompt Matching 
 | 2026-10-14 | AWS deep dive model-path table now lists App Builder, AI/BI assistive visualizations, and AI-generated comments, matching page 03 |
 | 2026-10-14 | GCP deep dive Regions section now states example availability results (Chat, autocomplete) instead of only pointing to page 04 |
 | 2026-10-14 | README merged with the site's home-page content: thesis, path of a question, six reviewer questions with short answers, evidence grades |
+| 2026-10-14 | README and home page: Agent mode and Genie One provider sentence now includes OpenAI on Databricks on AWS and GCP, matching page 03 |
