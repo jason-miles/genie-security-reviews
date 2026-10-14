@@ -54,3 +54,4 @@ Facts drawn from these and used above: result-summary sampling, Prompt Matching 
 | 2026-10-14 | GCP deep dive Regions section now states example availability results (Chat, autocomplete) instead of only pointing to page 04 |
 | 2026-10-14 | README merged with the site's home-page content: thesis, path of a question, six reviewer questions with short answers, evidence grades |
 | 2026-10-14 | README and home page: Agent mode and Genie One provider sentence now includes OpenAI on Databricks on AWS and GCP, matching page 03 |
+| 2026-10-14 | Leave-behind: Genie Code row separates chat (Azure OpenAI, plus OpenAI on Databricks on AWS/GCP) from agentic (adds Anthropic on Databricks) |

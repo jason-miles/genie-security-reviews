@@ -17,7 +17,7 @@
 |---|---|
 | Genie Agents Chat | Azure OpenAI (plus OpenAI on Databricks on AWS/GCP) |
 | Genie Agents Agent mode, Genie One | Anthropic on Databricks (plus OpenAI on Databricks on AWS/GCP) |
-| Genie Code | Autocomplete Databricks-hosted; chat and agentic by Azure OpenAI, OpenAI, Anthropic |
+| Genie Code | Autocomplete Databricks-hosted; chat by Azure OpenAI (plus OpenAI on Databricks on AWS/GCP); agentic adds Anthropic on Databricks |
 | Google Gemini | Not used by Genie assistive features; available as a model you choose elsewhere |
 
 ## Controls you own
