@@ -51,3 +51,4 @@ Facts drawn from these and used above: result-summary sampling, Prompt Matching 
 | 2026-10-14 | Home-page tracer gains a workspace-region selector (processed in your Geo, needs cross-Geo, or not available) driven by the verified availability tables; Asia footnote and GCP cells resolved |
 | 2026-10-14 | Autocomplete availability filled in for AWS and GCP (raw rows); tracer no longer shows "Not checked" for it |
 | 2026-10-14 | AWS deep dive model-path table now lists App Builder, AI/BI assistive visualizations, and AI-generated comments, matching page 03 |
+| 2026-10-14 | GCP deep dive Regions section now states example availability results (Chat, autocomplete) instead of only pointing to page 04 |

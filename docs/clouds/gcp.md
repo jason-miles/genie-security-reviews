@@ -40,7 +40,12 @@ The GCP CMK page (Enterprise tier) lists managed-services coverage for AI/BI das
 
 ## Regions and Geos
 
-GCP regions map to Geos like other clouds. The GCP page showed the same Geo pattern as AWS (table in [04](../04-data-sovereignty-and-geos.md#aws-and-gcp-by-geo)); the cells for these features are identical. Genie App Builder has no row on the GCP page. Re-check the cell values for your Geo before committing.
+GCP regions map to Geos like other clouds. The GCP page showed the same Geo pattern as AWS (table in [04](../04-data-sovereignty-and-geos.md#aws-and-gcp-by-geo)); the cells for these features are identical. Genie App Builder has no row on the GCP page. Examples from the verified rows:
+
+- Genie Agents Chat is native in the Americas, Europe, Australia and New Zealand, and India; it needs cross-Geo in the Middle East and Africa and is unavailable in Mainland China. Asia carries footnote § (depends on the country).
+- AI-based autocomplete is native in the Americas (US-based model) and Europe, and needs cross-Geo in Asia, Australia and New Zealand, India, Mainland China, and the Middle East and Africa.
+
+Re-check the cell values for your Geo before committing.
 
 ## GCP-specific review points
 
