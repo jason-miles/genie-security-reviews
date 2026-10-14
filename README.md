@@ -1,8 +1,10 @@
 # Genie Security Reviews
 
-### [Open the interactive site: trace what leaves your boundary →](https://jason-miles.github.io/genie-security-reviews/)
+### What leaves your boundary when someone asks Genie a question?
 
-A reference library for Databricks customers (and the teams supporting them) answering security, data-sovereignty, resiliency, and LLM-handling questions about the **Genie family**:
+A reference library for Databricks customers (and the teams supporting them) answering security, data-sovereignty, resiliency, and LLM-handling questions about the **Genie family**. It covers **AWS, Azure, and GCP** and the model families that can sit behind Databricks AI features: **OpenAI / Azure OpenAI, Anthropic, Google (Gemini), and Databricks-hosted models**. All content is **vendor-neutral and customer-neutral**.
+
+**[Open the interactive site: pick a cloud, feature, region, and setting, and trace the path →](https://jason-miles.github.io/genie-security-reviews/)**
 
 | Product | What it is |
 |---|---|
@@ -11,16 +13,46 @@ A reference library for Databricks customers (and the teams supporting them) ans
 | **Genie Code** (formerly Databricks Assistant) | Coding assistant in notebooks, SQL editor, and files; autocomplete, chat, agentic |
 | Related | AI-generated comments, AI/BI dashboard assistive features, Genie App Builder |
 
-All content is **vendor-neutral and customer-neutral**. It covers **AWS, Azure, and GCP** and the model families that can sit behind Databricks AI features: **OpenAI / Azure OpenAI, Anthropic, Google (Gemini), and Databricks-hosted models**.
+> **Status:** living reference, last reviewed **13 Oct 2026** against public Databricks documentation. Product behaviour, model providers, and settings change often. Always confirm against the linked sources and with the Databricks account team before relying on a statement in a regulated decision. Nothing here is a contractual commitment and nothing here is legal advice.
+>
+> **Deadline:** the *partner-powered AI features* setting is removed on **1 Nov 2026**. Existing values remain; later changes go through the Databricks account team. Record the current value for each workspace first ([details](docs/03-model-providers-by-cloud.md#upcoming-setting-change)).
 
-> **Status:** living reference, last reviewed **13 Oct 2026** against public Databricks documentation. Product behaviour, model providers, and settings change often (see [the partner-powered setting change on 1 Nov 2026](docs/03-model-providers-by-cloud.md#upcoming-setting-change)). Always confirm against the linked sources and with the Databricks account team before relying on a statement in a regulated decision. Nothing here is a contractual commitment.
+## How a question travels
 
-## Start here
+The user's question reaches the Databricks control plane, which builds context and sends prompt content across a boundary to a model host, then receives SQL or text back. The SQL runs on your warehouse, as the user, over your storage.
 
-- **Interactive home page:** https://jason-miles.github.io/genie-security-reviews/ (a self-contained site with a question tracer; hosting options in [Hosting the site](#hosting-the-site)).
+```
+Your cloud account and region            Databricks control plane            Model host
+ Person asking (runs as themselves)  -->  Genie orchestration            -->  OpenAI / Azure OpenAI,
+ SQL warehouse (runs the SQL)        <--  (builds context, stores the         Anthropic on Databricks,
+ Your storage (tables stay put)           conversation)                       or Databricks-hosted
+                                          ^ prompt content crosses here
+```
 
-- **Short answers:** [FAQ](docs/09-faq.md)
-- **Running a review:** [Security review questionnaire](docs/10-security-review-questionnaire.md) and [Hardening checklist](docs/08-admin-controls-and-hardening-checklist.md)
+Full walkthrough: [Architecture and data flow](docs/01-architecture-and-data-flow.md).
+
+## Questions reviewers ask first
+
+| Question | Short answer | Read |
+|---|---|---|
+| Is Genie sending only metadata to an LLM? | No. Databricks lists the prompt, table and column names and descriptions, relevant data values, instructions, and example SQL. Agent mode, Genie One, and Genie Code can also send query results, cell outputs, or table samples. All of it respects Unity Catalog permissions, with one documented exception: Prompt Matching values use the author's permissions. | [02](docs/02-what-data-reaches-an-llm.md) |
+| Which model answers: OpenAI, Anthropic, or Google? | It depends on the feature, the mode, and the cloud. Chat mode uses the Azure OpenAI service, with OpenAI on Databricks added on AWS and GCP. Agent mode and Genie One use Anthropic on Databricks. Google Gemini is not a host for Genie assistive features; it is a model you can select elsewhere. | [03](docs/03-model-providers-by-cloud.md) |
+| Do the model partners keep or train on our data? | Databricks states partners use zero-data-retention endpoints, including no retention for abuse monitoring, and that your data is not used to train foundation models offered to third parties. Databricks itself stores conversation history, encrypted. | [05](docs/05-metadata-retention-and-training.md) |
+| Can we keep processing inside our country or Geo? | Your tables and SQL stay in your region. Model processing follows the Geo setting. Where a Geo has no native endpoint, the feature works only with cross-Geo processing on, and enforcing the Geo turns it off. Decide first whether your policy forbids processing or only storage outside the country. | [04](docs/04-data-sovereignty-and-geos.md) |
+| Can a user see more through Genie than directly? | Not through interactive use: queries run as the user, and row filters and column masks apply before anything is sampled. The risks are configuration: a shared service principal on the API, secrets in instructions, Prompt Matching values generated by a highly privileged author, and views over masked tables. | [06](docs/06-access-control-and-governance.md) |
+| What happens when a provider or region is unavailable? | There is no user model picker for assistive features, and no Genie-specific SLA or recovery target is published. Plan fallbacks such as certified dashboards, and put the questions to your account team. | [07](docs/07-resiliency-and-availability.md) |
+
+More in the [FAQ](docs/09-faq.md).
+
+## How sure are we?
+
+Security references fail quietly when a summary gets repeated as fact. The [claims register](notes/claims-register.md) grades all 31 load-bearing claims:
+
+| Grade | Count | Meaning |
+|---|---|---|
+| **V** | 23 | Checked against the source's own text |
+| **S** | 1 | Inferred or from a summary; re-check |
+| **D** | 7 | Databricks-provided; confirm in writing ([open questions](notes/open-questions.md)) |
 
 ## Index
 
@@ -36,10 +68,10 @@ All content is **vendor-neutral and customer-neutral**. It covers **AWS, Azure, 
 | 07 | [Resiliency and availability](docs/07-resiliency-and-availability.md) | Failure modes, provider dependency, what to ask for |
 | 08 | [Admin controls and hardening checklist](docs/08-admin-controls-and-hardening-checklist.md) | Settings to review and recommended posture |
 | 09 | [FAQ](docs/09-faq.md) | Common customer concerns, short sourced answers |
-| 10 | [Security review questionnaire](docs/10-security-review-questionnaire.md) | Question bank with evidence to request |
+| 10 | [Security review questionnaire](docs/10-security-review-questionnaire.md) | Question bank (37 questions) with evidence to request |
 | 11 | [Sources and change log](docs/11-sources-and-change-log.md) | Source URLs, review dates, changes |
 
-## Per-cloud deep dives
+### Per-cloud deep dives
 
 | Cloud | Document |
 |---|---|
@@ -47,19 +79,20 @@ All content is **vendor-neutral and customer-neutral**. It covers **AWS, Azure, 
 | Azure | [docs/clouds/azure.md](docs/clouds/azure.md) |
 | GCP | [docs/clouds/gcp.md](docs/clouds/gcp.md) |
 
-## Share with customers
+### Share with customers
 
 - [One-page leave-behind](docs/leave-behind-one-pager.md)
 - Fillable questionnaire: [`templates/security-review-questionnaire.xlsx`](templates/security-review-questionnaire.xlsx) (status dropdown, filters) or [`.csv`](templates/security-review-questionnaire.csv). Regenerate with `python3 scripts/build_questionnaire_sheet.py` (needs `openpyxl`).
 
-## Working notes
+### Working notes
 
+- [notes/claims-register.md](notes/claims-register.md): every load-bearing claim and how it was checked
 - [notes/open-questions.md](notes/open-questions.md): items not yet confirmed from public sources
 - [notes/provider-matrix.md](notes/provider-matrix.md): compact feature x cloud x provider table
 
 ## Contributing
 
-Keep content customer-neutral: no customer names, workspace IDs, internal-only documents, or unreleased roadmap. Cite a public source for every factual claim and mark anything unverified as such in `notes/open-questions.md`.
+Keep content customer-neutral: no customer names, workspace IDs, internal-only documents, or unreleased roadmap. Cite a public source for every factual claim and mark anything unverified as such in `notes/open-questions.md`. The short answers and counts above mirror `index.html`; update both together.
 
 ## Hosting the site
 
