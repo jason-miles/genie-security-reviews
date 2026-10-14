@@ -78,6 +78,42 @@ var FEATURES = {
   }
 };
 
+
+/* Availability by region, from the designated-services pages (checked 13 Oct 2026).
+   N = native in the Geo, X = only with cross-Geo processing, - = not available, ? = not itemized here.
+   A trailing symbol is a footnote key into NOTES. Feature keys match FEATURES; "agent" also covers Genie One chat. */
+var NOTES = {
+  "‡": "With cross-Geo off, traffic is processed in the same country or territory for Brazil, Canada, Japan, Korea, Singapore, and the United Kingdom. Elsewhere in the Geo, models in the Geo serve it.",
+  "†": "Asia Geo traffic can be processed in Japan, South Korea, or Singapore.",
+  "§": "With cross-Geo off, Japan and Korea process in-country and Indonesia in the Asia Geo. Other Asia countries, including Singapore and Hong Kong, need cross-Geo."
+};
+var GEO_NAMES = ["Americas", "Asia", "Australia and New Zealand", "Europe", "India", "Mainland China", "Middle East and Africa"];
+var GEO_DATA = {
+  chat:      ["N‡", "N§", "N", "N‡", "N", "-", "X"],
+  agent:     ["N", "N†", "N", "N", "X", "X", "X"],
+  codeagent: ["N", "N", "N", "N", "X", "X", "X"],
+  codechat:  ["N‡", "N‡", "N", "N‡", "N", "X", "X"],
+  auto:      ["?", "?", "?", "?", "?", "?", "?"],
+  builder:   ["N", "X", "X", "N", "X", "-", "-"]
+};
+var GEO_DATA_GCP = JSON.parse(JSON.stringify(GEO_DATA));
+GEO_DATA_GCP.builder = ["-", "-", "-", "-", "-", "-", "-"];
+
+var AZ_NAMES = ["United States", "Canada", "Brazil", "Mexico", "Asia Pacific", "Japan", "South Korea", "Australia", "EU Data Boundary", "United Kingdom", "UAE", "Qatar", "India", "South Africa"];
+var AZ_DATA = {
+  chat:      ["N", "N", "N", "X", "X", "N", "N", "N", "N", "N", "X", "-", "N", "X"],
+  agent:     ["N", "X", "X", "X", "X", "N", "X", "N", "N", "X", "X", "-", "X", "X"],
+  codeagent: ["N", "X", "X", "X", "X", "N", "X", "N", "N", "X", "X", "-", "X", "X"],
+  codechat:  ["N", "N", "N", "X", "N", "N", "N", "N", "N", "N", "X", "-", "N", "X"],
+  auto:      ["N", "X", "X", "X", "X", "X", "X", "X", "N", "X", "X", "-", "X", "X"],
+  builder:   ["N", "X", "X", "-", "X", "X", "-", "X", "N", "X", "-", "-", "X", "-"]
+};
+
+function regionTable(cloud) {
+  if (cloud === "azure") return { names: AZ_NAMES, data: AZ_DATA };
+  return { names: GEO_NAMES, data: cloud === "gcp" ? GEO_DATA_GCP : GEO_DATA };
+}
+
 var KEPT = [
   ["V", "Model partners do not retain prompts or responses, even for abuse monitoring."],
   ["V", "Databricks does not use these inputs or outputs to train generative foundation models it makes available to third parties."],
@@ -111,6 +147,20 @@ function chipItem(grade, text, titleLine) {
   }
   li.appendChild(d);
   return li;
+}
+
+function fillRegions() {
+  var sel = document.getElementById("region");
+  var rt = regionTable(selected("cloud"));
+  var prev = sel.selectedIndex;
+  sel.textContent = "";
+  rt.names.forEach(function (n, i) {
+    var o = document.createElement("option");
+    o.value = String(i);
+    o.textContent = n;
+    sel.appendChild(o);
+  });
+  sel.selectedIndex = prev >= 0 && prev < rt.names.length ? prev : 0;
 }
 
 function selected(name) {
@@ -156,6 +206,26 @@ function render() {
     line = "Unchanged. Always a Databricks-hosted model.";
   }
   status.textContent = line;
+
+  var where = document.getElementById("where");
+  where.className = "where";
+  where.textContent = "";
+  if (providerList.length) {
+    var rt = regionTable(cloud);
+    var idx = Number(document.getElementById("region").value) || 0;
+    var cell = rt.data[fkey] ? rt.data[fkey][idx] : "?";
+    var code = cell.charAt(0);
+    var note = cell.length > 1 ? NOTES[cell.slice(1)] : "";
+    var head = el("b");
+    var msg = "";
+    if (cell === "N\u00a7") { where.classList.add("cross"); head.textContent = "Depends on your country"; msg = "In " + rt.names[idx] + " this feature is native for some countries and needs cross-Geo processing for others."; }
+    else if (code === "N") { where.classList.add("native"); head.textContent = "Processed in your Geo"; msg = "Native in " + rt.names[idx] + ". Enforcing the Geo setting keeps it working."; }
+    else if (code === "X") { where.classList.add("cross"); head.textContent = "Needs cross-Geo processing"; msg = "In " + rt.names[idx] + " this works only with cross-Geo processing on, so content can be processed in another Geo. Enforcing the Geo turns it off."; }
+    else if (code === "-") { where.classList.add("none"); head.textContent = "Not available here"; msg = "Not offered in " + rt.names[idx] + " on this cloud."; }
+    else { where.classList.add("unknown"); head.textContent = "Not checked"; msg = "Availability for this feature in " + rt.names[idx] + " is not itemized here; check the designated-services page."; }
+    where.appendChild(head);
+    where.appendChild(document.createTextNode(msg + (note ? " " + note : "")));
+  }
 
   providerList.forEach(function (p) {
     var h = HOSTS[p];
@@ -210,9 +280,14 @@ function daysLeft() {
 }
 
 function init() {
+  fillRegions();
   Array.prototype.forEach.call(document.querySelectorAll('.tracer input[type="radio"]'), function (r) {
-    r.addEventListener("change", render);
+    r.addEventListener("change", function () {
+      if (r.name === "cloud") fillRegions();
+      render();
+    });
   });
+  document.getElementById("region").addEventListener("change", render);
   document.getElementById("days").textContent = daysLeft();
   Array.prototype.forEach.call(document.querySelectorAll("[data-doc]"), function (a) {
     a.href = REPO + a.getAttribute("data-doc");

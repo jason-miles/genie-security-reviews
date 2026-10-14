@@ -33,7 +33,7 @@
   <div class="wrap">
     <p class="eyebrow">Genie Agents · Genie One · Genie Code · AWS · Azure · GCP</p>
     <h1>What leaves your boundary when someone asks <em>Genie</em> a question?</h1>
-    <p class="lede">Choose a cloud, a feature, and the partner-powered setting. The tracer shows which model hosts can receive the request, what is sent, and what is kept. Each line is graded by how it was checked.</p>
+    <p class="lede">Choose a cloud, a feature, your workspace region, and the partner-powered setting. The tracer shows which model hosts can receive the request, whether it is processed in your Geo or needs cross-Geo processing, what is sent, and what is kept. Each line is graded by how it was checked.</p>
 
     <div class="banner" role="note">
       <b id="days">&nbsp;</b>
@@ -68,6 +68,10 @@
             <label><input type="radio" name="partner" value="on" checked><span>On</span></label>
             <label><input type="radio" name="partner" value="off"><span>Off</span></label>
           </div>
+        </fieldset>
+        <fieldset class="wide">
+          <legend>Workspace region</legend>
+          <select id="region" name="region" aria-label="Workspace region"></select>
         </fieldset>
       </div>
 
@@ -105,6 +109,7 @@
         <div class="cell">
           <h2>Model hosts</h2>
           <p class="status" id="status"></p>
+          <p class="where" id="where"></p>
           <ul class="items" id="hosts"></ul>
         </div>
         <div class="cell">
