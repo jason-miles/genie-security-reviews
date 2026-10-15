@@ -92,7 +92,7 @@ Security references fail quietly when a summary gets repeated as fact. The [clai
 
 ## Contributing
 
-Keep content customer-neutral: no customer names, workspace IDs, internal-only documents, or unreleased roadmap. Cite a public source for every factual claim and mark anything unverified as such in `notes/open-questions.md`. The short answers and counts above mirror `index.html`; update both together.
+Keep content customer-neutral: no customer names, workspace IDs, internal-only documents, or unreleased roadmap. Cite a public source for every factual claim and mark anything unverified as such in `notes/open-questions.md`. The short answers and counts above mirror `index.html`; update both together, then run `python3 scripts/check_consistency.py` to catch drift in the claim and question counts.
 
 ## Hosting the site
 

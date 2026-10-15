@@ -55,3 +55,6 @@ Facts drawn from these and used above: result-summary sampling, Prompt Matching 
 | 2026-10-14 | README merged with the site's home-page content: thesis, path of a question, six reviewer questions with short answers, evidence grades |
 | 2026-10-14 | README and home page: Agent mode and Genie One provider sentence now includes OpenAI on Databricks on AWS and GCP, matching page 03 |
 | 2026-10-14 | Leave-behind: Genie Code row separates chat (Azure OpenAI, plus OpenAI on Databricks on AWS/GCP) from agentic (adds Anthropic on Databricks) |
+| 2026-10-15 | Added scripts/check_consistency.py: checks claim and question counts quoted in README, home page, and site.js against the register and questionnaire |
+| 2026-10-15 | Site polish: canonical, Open Graph and theme-color metadata, 404 page, robots.txt |
+| 2026-10-15 | Lighthouse pass (desktop): contrast-safe text tokens for light mode, CSP connect-src so robots.txt is readable, frame-ancestors left to the Apache header (ignored in a meta tag), 404 page inline style moved to CSS; scores 100/100/100/100 |
