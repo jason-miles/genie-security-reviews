@@ -58,3 +58,4 @@ Facts drawn from these and used above: result-summary sampling, Prompt Matching 
 | 2026-10-15 | Added scripts/check_consistency.py: checks claim and question counts quoted in README, home page, and site.js against the register and questionnaire |
 | 2026-10-15 | Site polish: canonical, Open Graph and theme-color metadata, 404 page, robots.txt |
 | 2026-10-15 | Lighthouse pass (desktop): contrast-safe text tokens for light mode, CSP connect-src so robots.txt is readable, frame-ancestors left to the Apache header (ignored in a meta tag), 404 page inline style moved to CSS; scores 100/100/100/100 |
+| 2026-10-17 | Re-fetched provider, Geos, and designated-services pages. Azure availability corrected (UK agentic Genie Code native; Qatar cross-Geo for Chat, Agent mode, agentic and chat Genie Code). Removal notice found on AWS and GCP pages only; Azure applicability added as Q15. See notes/claims-register.md |

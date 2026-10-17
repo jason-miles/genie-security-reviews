@@ -15,7 +15,7 @@ A reference library for Databricks customers (and the teams supporting them) ans
 
 > **Status:** living reference, last reviewed **13 Oct 2026** against public Databricks documentation. Product behaviour, model providers, and settings change often. Always confirm against the linked sources and with the Databricks account team before relying on a statement in a regulated decision. Nothing here is a contractual commitment and nothing here is legal advice.
 >
-> **Deadline:** the *partner-powered AI features* setting is removed on **1 Nov 2026**. Existing values remain; later changes go through the Databricks account team. Record the current value for each workspace first ([details](docs/03-model-providers-by-cloud.md#upcoming-setting-change)).
+> **Deadline:** the *partner-powered AI features* setting is removed on **1 Nov 2026** (announced on the AWS and GCP docs; confirm for Azure, Q15). Existing values remain; later changes go through the Databricks account team. Record the current value for each workspace first ([details](docs/03-model-providers-by-cloud.md#upcoming-setting-change)).
 
 ## How a question travels
 

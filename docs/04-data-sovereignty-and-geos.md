@@ -85,9 +85,9 @@ Azure's page lists regions individually (and labels the model provider "Azure AI
 | South Korea | Native | Cross-Geo | Cross-Geo | Native | Native | Native | No |
 | Australia | Native | Native | Native | Native | Native | Native | Cross-Geo |
 | EU Data Boundary | Native | Native | Native | Native | Native | Native | Native |
-| United Kingdom | Native | Cross-Geo | Cross-Geo | Native | Native | Native | Cross-Geo |
+| United Kingdom | Native | Cross-Geo | Native | Native | Native | Native | Cross-Geo |
 | UAE | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No |
-| Qatar | No | No | No | No | No | No | No |
+| Qatar | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No | No | No |
 | India | Native | Cross-Geo | Cross-Geo | Native | Native | Native | Cross-Geo |
 | South Africa | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | Cross-Geo | No |
 
@@ -102,7 +102,7 @@ Azure states that for AI assistive features in US and EU regions, regardless of 
 
 - A feature that is **Native** in your Geo or region is processed there with enforcement ON.
 - A feature marked **Cross-Geo** stops working if you enforce the Geo. For a policy that forbids processing outside a country, that decides the question.
-- **No** means the feature is not offered in that region at all (for example every Genie feature in Qatar on Azure).
+- **No** means the feature is not offered in that region at all (for example AI/BI dashboards, AI-generated comments, and Genie App Builder in Qatar on Azure).
 - The tables differ by cloud. Re-check the page for your cloud and region before any commitment.
 
 Public documentation does **not** state which Geo processes the content when cross-Geo is used. Do not assume it is a specific region; ask the account team.

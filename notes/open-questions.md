@@ -18,6 +18,7 @@ Items that public documentation does not settle. Resolve with the Databricks acc
 | Q12 | After 1 Nov 2026, process and lead time for changing the partner-powered setting via account team. | Change control | Open |
 | Q13 | Does Databricks publish a per-region list of where each model family is processed for each Genie feature? | Sovereignty evidence | Availability matrix exists; routing detail not published |
 | Q14 | Customer-specific content-filter tuning availability by provider route. | Safety configuration | Open |
+| Q15 | Does the 1 Nov 2026 removal of the partner-powered setting apply to Azure workspaces? The AWS and GCP pages announce it; the Azure page (updated 13 Oct) carried no notice when re-fetched on 17 Oct. | Setting lifecycle | Open |
 
 ## Notes on conflicting statements
 

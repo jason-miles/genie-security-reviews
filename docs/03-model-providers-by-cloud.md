@@ -47,7 +47,7 @@ Reviewed 13 Oct 2026. Rows marked with a cloud list differences; unmarked rows a
 
 ## Upcoming setting change
 
-Public documentation (12 Oct 2026) states the partner-powered AI features setting is being removed:
+The AWS and GCP documentation pages state that the partner-powered AI features setting is being removed. The Azure page (updated 13 Oct 2026) carried no such notice when re-fetched on 17 Oct 2026, so confirm with the account team whether it applies to Azure workspaces (Q15). The notice reads:
 
 - Workspaces with it enabled can no longer disable it via the settings-page toggle.
 - Until **1 Nov 2026** the Settings API can still enable or disable it.

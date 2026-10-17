@@ -17,7 +17,7 @@ Each load-bearing claim, where it appears, and how it was checked. Checked **13 
 | 3 | Partner-powered provider table, GCP (App Builder not available) | 03, gcp, matrix | docs.databricks.com/gcp/.../partner-powered | V |
 | 4 | CSP fallback standards for Genie Code non-agentic (AWS list; Azure HIPAA only) | 03 | AWS and Azure partner-powered footnotes | V |
 | 5 | Anthropic on Databricks hosted inside the Databricks security perimeter | 03, 04, clouds | partner-powered footnote | V |
-| 6 | Setting removed 1 Nov 2026; value stays; later changes via account team | 03, 07, 08 | partner-powered (Azure) | V |
+| 6 | Setting removed 1 Nov 2026; value stays; later changes via account team (stated on AWS and GCP pages; Azure page has no notice, Q15) | 03, 07, 08 | partner-powered (AWS, GCP) | V |
 | 7 | Partners do not retain data, even for abuse monitoring; no training on third-party models | 05, 09, leave-behind | AI trust (Azure, AWS) | V |
 | 8 | Data sent per feature (Agents, One, Code, comments) | 02 | AI trust (Azure) | V |
 | 9 | Responses stored in control-plane DB, AES-256; Code chat with notebook content | 05 | AI trust (Azure) | V |
@@ -69,6 +69,15 @@ Azure and GCP designated-services pages checked; AWS rows re-read as raw table c
 3. The country list for footnote ‡ is Brazil, Canada, Japan, Korea, Singapore, and the UK. The earlier list wrongly added Hong Kong and Indonesia.
 4. The Asia cell for Genie Agents Chat carries footnote § on both AWS and GCP (an earlier note had GCP as ‡); the footnote is now captured.
 5. Azure's page is per country or region, and shows Qatar with no Genie features and South Africa, UAE, and Mexico needing cross-Geo.
+
+## Fourth pass (17 Oct 2026): full re-fetch
+
+Provider tables (AWS, Azure, GCP), the Geos page, and the designated-services pages (AWS, Azure, GCP) were re-fetched and compared cell by cell.
+
+- Provider tables, footnotes, the Geos list, and every AWS and GCP availability cell: unchanged.
+- Azure availability page was updated 14 Oct. Five cells changed or were misread: United Kingdom is native (not cross-Geo) for agentic Genie Code; Qatar is cross-Geo (not unavailable) for Genie Agents Chat, Agent mode, agentic Genie Code, and Genie Code chat. Qatar remains unavailable for dashboards, comments, autocomplete, and App Builder.
+- The 1 Nov 2026 removal notice appears on the AWS and GCP partner-powered pages but not on the Azure page; claim 6 now cites AWS and GCP and open question Q15 tracks Azure.
+- Not re-fetched: CMK pages, trust and safety page, compliance security profile page, Prompt Matching page.
 
 ## Next to verify
 

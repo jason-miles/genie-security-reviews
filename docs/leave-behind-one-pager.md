@@ -34,7 +34,7 @@
 
 ## Date to remember
 
-The partner-powered AI features setting is removed on **1 Nov 2026**. Record your current value before then; later changes go through your account team.
+The partner-powered AI features setting is removed on **1 Nov 2026** (announced in the AWS and GCP documentation; confirm for Azure with your account team). Record your current value before then; later changes go through your account team.
 
 ## Next steps
 

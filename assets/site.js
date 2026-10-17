@@ -102,10 +102,10 @@ GEO_DATA_GCP.builder = ["-", "-", "-", "-", "-", "-", "-"];
 
 var AZ_NAMES = ["United States", "Canada", "Brazil", "Mexico", "Asia Pacific", "Japan", "South Korea", "Australia", "EU Data Boundary", "United Kingdom", "UAE", "Qatar", "India", "South Africa"];
 var AZ_DATA = {
-  chat:      ["N", "N", "N", "X", "X", "N", "N", "N", "N", "N", "X", "-", "N", "X"],
-  agent:     ["N", "X", "X", "X", "X", "N", "X", "N", "N", "X", "X", "-", "X", "X"],
-  codeagent: ["N", "X", "X", "X", "X", "N", "X", "N", "N", "X", "X", "-", "X", "X"],
-  codechat:  ["N", "N", "N", "X", "N", "N", "N", "N", "N", "N", "X", "-", "N", "X"],
+  chat:      ["N", "N", "N", "X", "X", "N", "N", "N", "N", "N", "X", "X", "N", "X"],
+  agent:     ["N", "X", "X", "X", "X", "N", "X", "N", "N", "X", "X", "X", "X", "X"],
+  codeagent: ["N", "X", "X", "X", "X", "N", "X", "N", "N", "N", "X", "X", "X", "X"],
+  codechat:  ["N", "N", "N", "X", "N", "N", "N", "N", "N", "N", "X", "X", "N", "X"],
   auto:      ["N", "X", "X", "X", "X", "X", "X", "X", "N", "X", "X", "-", "X", "X"],
   builder:   ["N", "X", "X", "-", "X", "X", "-", "X", "N", "X", "-", "-", "X", "-"]
 };
